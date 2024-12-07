@@ -1,8 +1,8 @@
 
 # checkout N times backwards
-gsn() {
+gcn() {
 	if [ -z "$1" ]; then
-		echo "Checking out once\n"
+		echo "Checking out once"
 		echo "Usage: gsn <number>"
 		git checkout -
 		return 0
