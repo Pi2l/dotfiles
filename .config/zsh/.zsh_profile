@@ -1,0 +1,10 @@
+#
+# ~/.zsh_profile
+
+# Get the aliases and functions
+CONFIG_DIR=${XDG_CONFIG_HOME:-$HOME/.config}
+if [ -f "$CONFIG_DIR/zsh/.zshrc" ]; then
+    . "$CONFIG_DIR/zsh/.zshrc"
+fi
+# or find it at home
+[[ -f ~/.zshrc ]] && . ~/.zshrc
