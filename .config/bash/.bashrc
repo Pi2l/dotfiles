@@ -12,4 +12,5 @@ PROFILE_FILE="$CONFIG_DIR/.profile.sh"
 # source aliases, completion etc
 while read -r f; do source "$f"; done < <(find "$CONFIG_DIR/bash/bashrc.d/" -name "*.sh")
 
-
+# Startship init
+eval "$(starship init zsh)"

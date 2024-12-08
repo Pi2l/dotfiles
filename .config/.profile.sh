@@ -11,6 +11,10 @@ source ~/.config/user-dirs.dirs
 # editor
 EDITOR=vim
 
+# Starship config file location
+export STARSHIP_CONFIG=${XDG_CONFIG_HOME}/starship/starship.toml
+export STARSHIP_CACHE=${XDG_CACHE_HOME}/starship
+
 # Set the PATH so it includes user's private bin if it exists
 export PATH="$HOME/.local/bin:$PATH"
 

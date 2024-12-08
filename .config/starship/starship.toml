@@ -1,0 +1,134 @@
+
+# Use custom format
+format = '''
+[$username(@$hostname)(:$localip) ](italic blue)$directory(blue)$all
+'''
+# example
+# format = '''
+# [┌](bold blue)[$username(@$hostname)(:$localip)](italic blue) $directory(blue)$all
+# '''
+
+# Wait 10 seconds for starship to check files under the current directory.
+scan_timeout = 10000
+
+# Disable the blank line at the start of the prompt
+add_newline = false
+
+[character]
+success_symbol = '[ ➜](bold green) '
+error_symbol = '[ ➜](bold red) '
+
+[git_branch]
+format = 'on [$symbol](blue)[$branch(:$remote_branch)]($style) '
+symbol = ' '
+truncation_length = 30
+style = 'bold italic purple'
+
+[git_state]
+merge = '[ MERGING]'
+
+[git_commit]
+tag_symbol = '🏷'
+style = 'yellow'
+
+[git_metrics]
+format = '[+$added]($added_style)/[-$deleted]($deleted_style) '
+disabled = true
+
+[git_status]
+conflicted = '[=:$count]'
+ahead = '[⇡:$count]'
+behind = '[⇣:$count]'
+diverged = '[⇕:$count]'
+up_to_date = ''
+untracked = '[?:$count](red)'
+stashed = '[$:$count](purple)'
+modified = '[!:$count](yellow)'
+staged = '[+:$count](green)'
+renamed = '[»:$count](blue)'
+deleted = '[✘:$count](red)'
+typechanged = '|'
+style = 'red'
+
+[memory_usage]
+format = '\[[(${symbol})${ram}( | ${swap_pct})]($style)\] '
+disabled = false
+threshold = 80
+symbol = 'mem ' # 
+style = 'bold dimmed red'
+
+[java]
+symbol = ' '
+style = 'green'
+
+[username]
+style_user = 'white bold'
+style_root = 'black bold'
+format = '$user]($style) '
+disabled = false
+
+[hostname]
+format = '[$ssh_symbol$hostname]($style):'
+disabled = false
+ssh_symbol = ' '
+
+[package]
+format = '[\[$version\]](208 bold) '
+
+[cmd_duration]
+min_time = 60000 # 60 seconds
+
+[directory]
+truncate_to_repo = false
+read_only = ':ro'
+truncation_symbol = '…/'
+
+[os]
+format = "[($symbol )]($style)"
+style = "bold blue"
+disabled = false
+
+[os.symbols]
+Alpaquita = " "
+Alpine = " "
+AlmaLinux = " "
+Amazon = " "
+Android = " "
+Arch = " "
+Artix = " "
+CentOS = " "
+Debian = " "
+DragonFly = " "
+Emscripten = " "
+EndeavourOS = " "
+Fedora = " "
+FreeBSD = " "
+Garuda = "󰛓 "
+Gentoo = " "
+HardenedBSD = "󰞌 "
+Illumos = "󰈸 "
+Kali = " "
+Linux = " "
+Mabox = " "
+Macos = " "
+Manjaro = " "
+Mariner = " "
+MidnightBSD = " "
+Mint = " "
+NetBSD = " "
+NixOS = " "
+OpenBSD = "󰈺 "
+openSUSE = " "
+OracleLinux = "󰌷 "
+Pop = " "
+Raspbian = " "
+Redhat = " "
+RedHatEnterprise = " "
+RockyLinux = " "
+Redox = "󰀘 "
+Solus = "󰠳 "
+SUSE = " "
+Ubuntu = " "
+Unknown = " "
+Void = " "
+Windows = "󰍲 "
