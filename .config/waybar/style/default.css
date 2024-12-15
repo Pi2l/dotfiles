@@ -1,4 +1,3 @@
-@import "colors-template.css";
 
 * {
   transition: none;
@@ -50,6 +49,40 @@
   border-left: none;
 }
 
-#custom-menu {
-  padding: 4px;
+#mode, #battery, #cpu, #memory, #network, #pulseaudio, #idle_inhibitor, #backlight, #custom-storage, #custom-updates, #custom-weather, #custom-mail, #clock, #temperature, #language{
+  margin: 4px 2px;
+  padding: 0 6px;
+  background-color: @base02;
+  border-radius: 4px;
+  min-width: 20px;
+}
+
+#pulseaudio.muted {
+  color: @base0F;
+}
+
+#pulseaudio.bluetooth {
+  color: @base0C;
+}
+
+#clock {
+  margin-left: 0px;
+  margin-right: 4px;
+  background-color: transparent;
+}
+
+#temperature.critical {
+  color: @base0F;
+}
+
+#window {
+  font-size: 0.9em;
+	font-weight: 400;
+	font-family: sans-serif;
+}
+
+#language {
+	font-size: 0.9em;
+	font-weight: 500;
+	letter-spacing: -1px;
 }
