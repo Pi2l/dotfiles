@@ -16,16 +16,19 @@ wallust_config="$HOME/.config/wallust/wallust.toml"
 pallete_dark="dark16"
 pallete_light="light16"
 
-
-# Determine current theme mode
-if [ "$(cat $HOME/.cache/.theme_mode)" = "Light" ]; then
-    next_mode="Dark"
-    # Logic for Dark mode
-    wallpaper_path="$dark_wallpapers"
+if [ ! -z $1 ]; then
+    next_mode="$1"
 else
-    next_mode="Light"
-    # Logic for Light mode
-    wallpaper_path="$light_wallpapers"
+    # Determine current theme mode
+    if [ "$(cat $HOME/.cache/.theme_mode)" = "Light" ]; then
+        next_mode="Dark"
+        # Logic for Dark mode
+        wallpaper_path="$dark_wallpapers"
+    else
+        next_mode="Light"
+        # Logic for Light mode
+        wallpaper_path="$light_wallpapers"
+    fi
 fi
 
 # Function to update theme mode for the next cycle
@@ -128,7 +131,7 @@ set_custom_gtk_theme() {
     icon_setting="org.gnome.desktop.interface icon-theme"
 
     # Define the file path
-    theme_file="$HOME/.cache/theme-switcher/theme"
+    theme_file="$HOME/.config/theme-switcher/theme"
     if [ "$mode" == "Light" ]; then
         search_keywords="*Light*"
         selected_color="prefer-light"
@@ -170,7 +173,7 @@ set_custom_gtk_theme() {
         echo "GTK Theme: $selected_theme"
         echo "GTK Icon: $selected_icon"
     else
-        notify-send "Config file not found! Searched at: $theme_file"
+        notify-send "Config file not found! Searched at: $theme_file; File layout: [dark-theme]\ngtk-theme='...'\ngtk-icon='...'\n[light-theme]\ngtk-theme='...'\ngtk-icon='...'"
         while IFS= read -r -d '' theme_search; do
             themes+=("$(basename "$theme_search")")
         done < <(find "$gtk_themes_directory" -maxdepth 1 -type d -iname "$search_keywords" -print0)

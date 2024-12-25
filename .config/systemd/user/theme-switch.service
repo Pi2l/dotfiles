@@ -1,0 +1,5 @@
+[Unit]
+Description=Switch GTK theme based on the time of day
+
+[Service]
+ExecStart=/bin/bash %h/.config/scripts/sunrise-sunset/dynamic_theme_switch.sh
