@@ -9,7 +9,7 @@ export XDG_RUNTIME_DIR=${XDG_RUNTIME_DIR:-/run/user/$UID}
 source ~/.config/user-dirs.dirs
 
 # editor
-EDITOR=vim
+EDITOR=nvim
 
 # Starship config file location
 export STARSHIP_CONFIG=${XDG_CONFIG_HOME}/starship/starship.toml
