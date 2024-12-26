@@ -240,8 +240,8 @@ update_theme_mode
 # sleep 0.5
 # # Run remaining scripts
 # ${SCRIPTSDIR}/WallustSwww.sh
-sleep 1
-${SCRIPTSDIR}/refresh.sh
+# sleep 1
+# ${SCRIPTSDIR}/refresh.sh # if this script is launched using systemctl then waybar dies after this script is executed
 
 sleep 0.3
 # Display notifications for theme and icon changes

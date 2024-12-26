@@ -1,11 +1,10 @@
 [Unit]
-Description=Timer for Dynamic Theme Switching
+Description=Dynamic Theme Switcher
 
 [Timer]
 Unit=theme-switch.service
+OnCalendar=*-*-* 08:04
 Persistent=true
-OnCalendar=*-*-* 00:00:00
 
 [Install]
 WantedBy=timers.target
-
