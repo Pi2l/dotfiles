@@ -1,42 +1,43 @@
-{
-"include": [
-  "$HOME/.config/waybar/Modules",
-  "$HOME/.config/waybar/ModulesWorkspaces",
-  "$HOME/.config/waybar/ModulesCustom",
-  "$HOME/.config/waybar/ModulesGroups",
-  ],
-"layer": "top",
-"exclusive": true,
-"passthrough": false,
-"position": "top",
-"spacing": 3,
-"fixed-center": true,
-"ipc": true,
+[
+  {
+  "include": [
+    "$HOME/.config/waybar/Modules",
+    "$HOME/.config/waybar/ModulesWorkspaces",
+    "$HOME/.config/waybar/ModulesCustom",
+    "$HOME/.config/waybar/ModulesGroups",
+    ],
+  "layer": "top",
+  "exclusive": true,
+  "passthrough": false,
+  "position": "top",
+  "spacing": 3,
+  "fixed-center": true,
+  "ipc": true,
 
-"modules-left": [
-	"custom/menu",
-	"custom/light_dark",
-	"custom/separator#line",
-	"group/motherboard",
-	"custom/separator#line",
-	"hyprland/workspaces#rw",
-	],
+  "modules-left": [
+    "custom/menu",
+    "custom/light_dark",
+    "custom/separator#line",
+    "group/motherboard",
+    "custom/separator#line",
+    "hyprland/workspaces#rw",
+    ],
 
-"modules-center": [
-	"clock",
-	], 
+  "modules-center": [
+    "clock",
+    ], 
 
-"modules-right": [
-	"network#speed",
-	"custom/separator#line",
-	"tray",
-	"bluetooth",
-	"group/laptop",
-	"group/audio",
-	"keyboard-state",
-	"custom/keyboard",
-	"custom/separator#dot-line",
-	"custom/power",
-	],
-}
-
+  "modules-right": [
+    "network#speed",
+    "custom/separator#line",
+    "tray",
+    "bluetooth",
+    "group/laptop",
+    "group/audio",
+    "keyboard-state",
+    "custom/keyboard",
+    "custom/separator#dot-line",
+    "custom/power",
+    ],
+  }
+]

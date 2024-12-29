@@ -1,5 +1,7 @@
 [Unit]
 Description=Switch GTK theme based on the time of day
+After=network-online.target
+Wants=network-online.target
 
 [Service]
 ExecStart=/bin/bash %h/.config/scripts/sunrise-sunset/dynamic_theme_switch.sh

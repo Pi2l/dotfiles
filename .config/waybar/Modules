@@ -8,8 +8,10 @@
 	"interval": 10,
 	"tooltip": true,
 	"hwmon-path": [
-		"/sys/class/hwmon/hwmon1/temp1_input",
-		"/sys/class/thermal/thermal_zone0/temp"
+		"/proc/acpi/ibm/thermal", /* CPU */
+    "/sys/class/hwmon/hwmon4/temp1_input", /* GPU */
+		"/sys/class/hwmon/hwmon2/temp1_input", /* HDD */
+    "/sys/class/power_supply/BAT0/power_now" /* Power consumption */
 	],
 	//"thermal-zone": 0,
 	"critical-threshold": 82,

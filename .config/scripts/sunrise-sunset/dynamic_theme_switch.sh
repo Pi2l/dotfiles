@@ -1,16 +1,25 @@
 #!/bin/bash
 
-# Variables
-theme_file="$HOME/.config/light-dark-theme/theme"
-location_info=$(curl -s http://ip-api.com/json/)
-latitude=$(echo "$location_info" | jq -r .lat)
-longitude=$(echo "$location_info" | jq -r .lon)
-timezone=$(echo "$location_info" | jq -r .timezone)
+for i in {1..5}; do
+  # Variables
+  theme_file="$HOME/.config/light-dark-theme/theme"
+  location_info=$(curl -s http://ip-api.com/json/)
+  latitude=$(echo "$location_info" | jq -r .lat)
+  longitude=$(echo "$location_info" | jq -r .lon)
+  timezone=$(echo "$location_info" | jq -r .timezone)
+
+  if [[ -n "$latitude" && -n "$longitude" && -n "$timezone" ]]; then
+    break
+  fi
+  echo "Network not ready. Retrying in 5 seconds... ($i/5)"
+  sleep 5
+done
 
 # Check location retrieval
 if [[ -z "$latitude" || -z "$longitude" || -z "$timezone" ]]; then
-    echo "Error: Could not retrieve location information."
-    exit 1
+  echo "Error: Could not retrieve location information."
+  echo "Failed due to: latitude: '$latitude'; longitude: '$longitude'; timezone: '$timezone'"
+  exit 1
 fi
 
 # Fetch sunrise and sunset times
@@ -26,15 +35,15 @@ sunset_local=$(TZ="$timezone" date -d "$sunset_utc" +"%H:%M")
 current_time=$(date +"%H:%M")
 
 # Determine next action
-if [[ $(date -d "$current_time" +%s) -ge $(date -d "$sunrise_local" +%s) && $(date -d "$current_time" +%s) -le $(date -d "$sunset_local" +%s)  ]]; then
-    mode="Light"
-    next_trigger="$sunset_local"
+if [[ $(date -d "$current_time" +%s) -ge $(date -d "$sunrise_local" +%s) && $(date -d "$current_time" +%s) -le $(date -d "$sunset_local" +%s) ]]; then
+  mode="Light"
+  next_trigger="$sunset_local"
 elif [[ $(date -d "$current_time" +%s) -ge $(date -d "$sunset_local" +%s) ]]; then
-    mode="Dark"
-    next_trigger="$sunrise_local"
+  mode="Dark"
+  next_trigger="$sunrise_local"
 else
-    mode="Dark"
-    next_trigger=$(date -d "tomorrow $sunrise_local" +"%H:%M")
+  mode="Dark"
+  next_trigger=$(date -d "tomorrow $sunrise_local" +"%H:%M")
 fi
 
 # Apply the current theme
@@ -45,7 +54,7 @@ next_trigger_iso="*-*-* $(date -d "$next_trigger" +"%H:%M")"
 
 # Dynamically create the timer file
 timer_file="$HOME/.config/systemd/user/theme-switch.timer"
-cat > "$timer_file" <<EOF
+cat >"$timer_file" <<EOF
 [Unit]
 Description=Dynamic Theme Switcher
 

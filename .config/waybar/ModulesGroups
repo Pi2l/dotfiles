@@ -23,12 +23,19 @@
 	]
 },
 
+"group/temperature-full": {
+	"orientation": "horizontal",
+	"modules": [
+    "memory",
+		"custom/cpu",
+		"custom/fan"
+	]
+},
+
 "group/motherboard": {
 	"orientation": "horizontal",
 	"modules": [
-		"cpu",
-		"memory",
-		"temperature",
+		"group/temperature-full"
 	]
 },
 
@@ -46,7 +53,7 @@
 		"transition-duration": 500,
 		"children-class": "cpu",
 		"transition-left-to-right": true
-        },
+  },
 	"modules": [
 		"temperature",		
 		"cpu",	
