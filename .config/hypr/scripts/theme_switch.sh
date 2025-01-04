@@ -243,6 +243,8 @@ update_theme_mode
 # sleep 1
 # ${SCRIPTSDIR}/refresh.sh # if this script is launched using systemctl then waybar dies after this script is executed
 
+wallust run ~/.local/share/walls/default
+
 sleep 0.3
 # Display notifications for theme and icon changes
 notify-send -u normal "Themes in $next_mode Mode" "GTK Theme: $selected_theme\nGTK Icon: $selected_icon"
