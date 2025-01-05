@@ -44,26 +44,16 @@
 	"interval": 2,
 	"align": 0,
 	"rotate": 0,
-	//"format": "{icon} {percent}%",
-	"format-icons": [
-		" ",
-		" ",
-		" ",
-		"󰃝 ",
-		"󰃞 ",
-		"󰃟 ",
-		"󰃠 "
-	],
-	"format": "{icon}",
-	//"format-icons": ["","","","","","","","","","","","","","",""],
+	"format": "{icon} {percent}%",
+	"format-icons": ["","","","","","","","","","","","","","",""],
 	"tooltip-format": "backlight {percent}%",
 	"icon-size": 10,
 	"on-click": "",
 	"on-click-middle": "",
 	"on-click-right": "",
 	"on-update": "",
-	"on-scroll-up": "$HOME/.config/hypr/scripts/Brightness.sh --inc",
-	"on-scroll-down": "$HOME/.config/hypr/scripts/Brightness.sh --dec",
+	"on-scroll-up": "$HOME/.config/hypr/scripts/brightness.sh increase 5",
+	"on-scroll-down": "$HOME/.config/hypr/scripts/brightness.sh decrease 5",
 	"smooth-scrolling-threshold": 1,
 },
 "backlight#2": {
@@ -159,6 +149,25 @@
     "format": "{:%a %d | %H:%M}", // 24H
 	"format-alt": "{:%A, %d %B, %Y (%R)}"
 },
+"clock#6": {
+  "interval": 1,
+  "format": "{:%H:%M:%S}", // 24H
+  "format-alt": " {:%H:%M   %Y, %d %B, %A}",
+	"tooltip-format": "<tt><small>{calendar}</small></tt>",
+	"calendar": {
+		"mode": "year",
+		"mode-mon-col": 3,
+		"weeks-pos": "right",
+		"on-scroll": 1,
+		"format": {
+			"months": "<span color='#ffead3'><b>{}</b></span>",
+			"days": "<span color='#ecc6d9'><b>{}</b></span>",
+			"weeks": "<span color='#99ffdd'><b>W{}</b></span>",
+			"weekdays": "<span color='#ffcc66'><b>{}</b></span>",
+			"today": "<span color='#ff6699'><b><u>{}</u></b></span>"
+		}
+	}
+},
 "cpu": {
 	"format": "{usage}% 󰍛",
 	"interval": 1,
@@ -227,11 +236,11 @@
 },
 "memory": {
 	"interval": 10,
-	"format": "{used:0.1f}G 󰾆",
-	"format-alt": "{percentage}% 󰾆",
+	"format": " {used:0.1f}GiB",
+	"format-alt": " {swapUsed:0.1f}GiB",
 	"format-alt-click": "click",
 	"tooltip": true,
-	"tooltip-format": "{used:0.1f}GB/{total:0.1f}G",
+	"tooltip-format": "Main: {used:0.1f}GiB/{total:0.1f} GiB\nSwap: {swapUsed:0.1f}/{swapAvail:0.1f} GiB",
 	"on-click-right": "kitty --title btop sh -c 'btop'"
 },
 "mpris": {
