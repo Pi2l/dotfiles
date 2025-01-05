@@ -1,4 +1,4 @@
-backend = "kmeans"
+backend = "full"
 
 # What color space to use to produce and select the most prominent colors:
 # lab - labmixed - lch - lchmixed
@@ -26,7 +26,7 @@ palette = "dark16"
 #  2 - 10     Perceptible at a glance.
 #  11 - 49    Colors are more similar than opposite
 #  100        Colors are exact opposite
-threshold = 11
+# threshold = 11
 
 [templates]
 hypr.template = 'colors-hyprland.conf'
