@@ -45,7 +45,8 @@
 	"align": 0,
 	"rotate": 0,
 	"format": "{icon} {percent}%",
-	"format-icons": ["","","","","","","","","","","","","","",""],
+	// "format-icons": ["","","","","","","","","","","","","","",""],
+	"format-icons": ["󰃞", "󰃟", "󰃠"],
 	"tooltip-format": "backlight {percent}%",
 	"icon-size": 10,
 	"on-click": "",
@@ -321,7 +322,7 @@
 "pulseaudio": {
 	"format": "{icon} {volume}%",
 	"format-bluetooth": "{icon} 󰂰 {volume}%",
-	"format-muted": "󰖁",
+	"format-muted": "󰝟",
 	"format-icons": {
 		"headphone": "",
 		"hands-free": "",
@@ -330,7 +331,7 @@
 		"portable": "",
 		"car": "",
 		"default": [
-			"", "", "󰕾",  ""
+			"", "", "󰕾", ""
 		],
 		"ignored-sinks": [
 			"Easy Effects Sink"
@@ -341,6 +342,32 @@
 	"on-click-right": "pavucontrol -t 3",
 	"on-scroll-up": "$HOME/.config/hypr/scripts/Volume.sh --inc",
 	"on-scroll-down": "$HOME/.config/hypr/scripts/Volume.sh --dec",
+	"tooltip-format": "{icon} {desc} | {volume}%",
+	"smooth-scrolling-threshold": 1,
+},
+"pulseaudio#withmic": {
+	"format": "{icon} {volume}%",
+	"format-bluetooth": "{icon} 󰂰 {volume}%",
+	"format-muted": "󰝟",
+	"format-icons": {
+		"headphone": "",
+		"hands-free": "",
+		"headset": "",
+		"phone": "",
+		"portable": "",
+		"car": "",
+		"default": [
+			"", "", "󰕾", ""
+		],
+		"ignored-sinks": [
+			"Easy Effects Sink"
+		],
+	},
+	"scroll-step": 5.0,
+	"on-click": "$HOME/.config/hypr/scripts/volume.sh toggle-volume",
+	"on-click-right": "pavucontrol -t 3",
+	"on-scroll-up": "$HOME/.config/hypr/scripts/volume.sh up 1",
+	"on-scroll-down": "$HOME/.config/hypr/scripts/volume.sh down 1",
 	"tooltip-format": "{icon} {desc} | {volume}%",
 	"smooth-scrolling-threshold": 1,
 },
@@ -366,11 +393,11 @@
 "pulseaudio#microphone": {
 	"format": "{format_source}",
 	"format-source": " {volume}%",
-	"format-source-muted": "",
-	"on-click": "$HOME/.config/hypr/scripts/Volume.sh --toggle-mic",
+	"format-source-muted": "󰍭",
+	"on-click": "$HOME/.config/hypr/scripts/volume.sh toggle-microphone",
 	"on-click-right": "pavucontrol -t 4",
-	"on-scroll-up": "$HOME/.config/hypr/scripts/Volume.sh --mic-inc",
-	"on-scroll-down": "$HOME/.config/hypr/scripts/Volume.sh --mic-dec",
+	"on-scroll-up": "$HOME/.config/hypr/scripts/volume.sh mic-up 1",
+	"on-scroll-down": "$HOME/.config/hypr/scripts/volume.sh mic-down 1",
 	"tooltip-format": "{source_desc} | {source_volume}%",
 	"scroll-step": 5,
 },

@@ -69,16 +69,16 @@
 	]
 },
 "group/audio": {
-	"orientation": "inherit",
-	"drawer": {
-		"transition-duration": 500,
-		"children-class": "pulseaudio",
-		"transition-left-to-right": true
-        },
-	"modules": [
-		"pulseaudio",
-		"pulseaudio#microphone",
-	]
+  "orientation": "inherit",
+  "drawer": {
+    "transition-duration": 300,
+    "children-class": "pulseaudio",
+    "transition-left-to-right": true
+  },
+  "modules": [
+    "pulseaudio#withmic",
+    "pulseaudio#microphone",
+  ]
 },
 
 "group/connections": {

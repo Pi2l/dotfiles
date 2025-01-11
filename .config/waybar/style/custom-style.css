@@ -1,62 +1,88 @@
-@import "colors-template.css";
+@import "wallust/colors-waybar.css";
+@import "style/catppuccin-themes/mocha.css";
 
 * {
   transition: none;
   box-shadow: none;
 }
 
-#waybar {
+window#waybar {
 	font-family: 'Source Code Pro', sans-serif;
 	font-size: 1.2em;
 	font-weight: 400;
-  color: @base04;
-  background: @base01;
+  color: @foreground;
+  background: @background;
 }
 
 #workspaces {
   margin: 0 4px;
+  background-color: transparent;
 }
 
 #workspaces button {
   margin: 4px 0;
   padding: 0 4px;
-  color: @base05;
 }
 
 #workspaces button.visible {
+  color: @base;
+  background-color: @lavender;
 }
 
 #workspaces button.active {
   border-radius: 4px;
-  background-color: @base02;
 }
 
 #workspaces button.urgent {
-  color: rgba(238, 46, 36, 1);
+  color: @red;
+}
+
+#tray,
+#backlight,
+#battery,
+#pulseaudio,
+#bluetooth {
+  margin: 4px 4px 4px 4px;
+  border-radius: 4px;
+  color: @base;
 }
 
 #tray {
-  margin: 4px 4px 4px 4px;
-  border-radius: 4px;
-  background-color: @base02;
+  background-color: @blue;
 }
 
 #tray * {
-  padding: 0 6px;
-  border-left: 1px solid @base00;
+  padding: 0 5px;
+  border-left: 1px solid @color0;
 }
 
 #tray *:first-child {
   border-left: none;
 }
 
-#custom-menu {
-  padding: 4px;
+#backlight {
+  padding: 0 5px;
+  background-color: @text;
+}
+
+#pulseaudio {
+  background-color: @yellow;
+  padding: 0 5px;
+}
+
+#bluetooth {
+  background-color: @mauve;
+  padding: 0 5px;
+}
+
+#pulseaudio {
+  min-width: 20px;
 }
 
 /* BATTERY */
 /* https://man.archlinux.org/man/waybar-battery.5.en */
 #battery {
+  background-color: @teal;
   padding: 0 5px;
 }
 #battery.charging:hover, #battery.discharging:hover {
