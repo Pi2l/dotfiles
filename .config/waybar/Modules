@@ -62,30 +62,32 @@
   "format-icons": ["", ""]
 },
 "battery": {
-	//"interval": 5,
-	"align": 0,
-	"rotate": 0,
 	//"bat": "BAT1",
 	//"adapter": "ACAD",
-	"full-at": 100,
-	"design-capacity": false,
+  "interval": 10,
 	"states": {
-		"good": 95,
+		"full": 95,
+		"good": 70,
+		"normal-up": 60,
+		"normal": 50,
+		"normal-down": 40,
+		"warning-up": 35,
 		"warning": 30,
+		"warning-down": 25,
 		"critical": 15
 	},
 	"format": "{icon} {capacity}%",
 	"format-charging": " {capacity}%",
-	"format-plugged": "󱘖 {capacity}%",
+	"format-plugged": "  {capacity}%",
 	"format-alt-click": "click",
-	"format-full": "{icon} Full",
-	"format-alt": "{icon} {time}",
+  "format-alt": "{capacity}%",
+	"format-full": "{icon} {capacity}%",
 	"format-icons": [
-		"󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"
+		"", "", "", "", ""
 	],
 	"format-time": "{H}h {M}min",
 	"tooltip": true,
-	"tooltip-format": "{timeTo} {power}w",
+	"tooltip-format": "State: {timeTo}\nPower: {power}w\nHealth: {health}%\nCycles: {cycles}",
 	"on-click-middle": "$HOME/.config/hypr/scripts/ChangeBlur.sh",
 	"on-click-right": "$HOME/.config/hypr/scripts/Wlogout.sh",
 },
