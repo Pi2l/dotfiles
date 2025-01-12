@@ -276,15 +276,16 @@
 	"max-length": 30,
 },
 "network": {
+  "interval": "1",
 	"format": "{ifname}",
 	"format-wifi": "{icon}",
 	"format-ethernet": "󰌘",
-	"format-disconnected": "󰌙",
-	"tooltip-format": "{ipaddr}  {bandwidthUpBits}  {bandwidthDownBits}",
+	"format-disconnected": "",
+	"tooltip-format": "Network interface:   {ifname}\nIp address: 󱦂  {ipaddr}\nNetwork mask:   {netmask}\nDefault gateway: 󰊙  {gwaddr}\nFrequency: {frequency}MHz\nNetwork name (SSID): {essid}\nSignal strength: {icon} {signalStrength}%\nSpeed: ↑ {bandwidthUpBytes} ↓ {bandwidthDownBytes}",
 	"format-linked": "󰈁 {ifname} (No IP)",
-	"tooltip-format-wifi": "{essid} {icon} {signalStrength}%",
-	"tooltip-format-ethernet": "{ifname} 󰌘",
-	"tooltip-format-disconnected": "󰌙 Disconnected",
+	// "tooltip-format-wifi": "{essid} {icon} {signalStrength}%\n{ipaddr}  {bandwidthUpBits}  {bandwidthDownBits}",
+	// "tooltip-format-ethernet": "{ifname} 󰌘",
+	// "tooltip-format-disconnected": "󰌙 Disconnected",
 	"max-length": 30,
 	"format-icons": [
 		"󰤯", "󰤟", "󰤢", "󰤥", "󰤨"

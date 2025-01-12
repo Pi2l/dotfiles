@@ -31,6 +31,7 @@
     "custom/swaync",
     "custom/separator#line",
     "tray",
+    "network",
     "pulseaudio#withmic",
     "pulseaudio#microphone",
     "bluetooth",
@@ -40,30 +41,5 @@
     "custom/separator#dot-line",
     "custom/power",
     ],
-  // },
-  // {
-  // "include": [
-  //   "$HOME/.config/waybar/Modules",
-  //   "$HOME/.config/waybar/ModulesWorkspaces",
-  //   "$HOME/.config/waybar/ModulesCustom",
-  //   "$HOME/.config/waybar/ModulesGroups",
-  //   ],
-  // "layer": "top",
-  // "exclusive": true,
-  // "passthrough": false,
-  // "position": "bottom",
-  // "spacing": 3,
-  // "fixed-center": true,
-  // "ipc": true,
-
-  // "modules-left": [
-  // ],
-
-  // "modules-center": [
-  //   "network#speed",
-  // ], 
-
-  // "modules-right": [
-  // ],
   }
 ]

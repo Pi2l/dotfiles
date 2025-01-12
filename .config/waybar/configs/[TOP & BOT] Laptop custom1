@@ -1,3 +1,7 @@
+/* ---- 💫 https://github.com/JaKooLit 💫 ---- */
+
+// ### DUAL TOP and BOTTOM ### //
+
 [
   {
   "include": [
@@ -40,30 +44,30 @@
     "custom/separator#dot-line",
     "custom/power",
     ],
-  // },
-  // {
-  // "include": [
-  //   "$HOME/.config/waybar/Modules",
-  //   "$HOME/.config/waybar/ModulesWorkspaces",
-  //   "$HOME/.config/waybar/ModulesCustom",
-  //   "$HOME/.config/waybar/ModulesGroups",
-  //   ],
-  // "layer": "top",
-  // "exclusive": true,
-  // "passthrough": false,
-  // "position": "bottom",
-  // "spacing": 3,
-  // "fixed-center": true,
-  // "ipc": true,
+  },
+  {
+  "include": [
+    "$HOME/.config/waybar/Modules",
+    "$HOME/.config/waybar/ModulesWorkspaces",
+    "$HOME/.config/waybar/ModulesCustom",
+    "$HOME/.config/waybar/ModulesGroups",
+    ],
+    "layer": "top",
+    "exclusive": true,
+    "passthrough": false,
+    "position": "bottom",
+    "spacing": 3,
+    "fixed-center": true,
+    "ipc": true,
 
-  // "modules-left": [
-  // ],
+    "modules-left": [
+    ],
 
-  // "modules-center": [
-  //   "network#speed",
-  // ], 
+    "modules-center": [
+      "network#speed",
+    ], 
 
-  // "modules-right": [
-  // ],
+    "modules-right": [
+    ],
   }
 ]

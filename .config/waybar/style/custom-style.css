@@ -41,7 +41,8 @@ window#waybar {
 #backlight,
 #battery,
 #pulseaudio,
-#bluetooth {
+#bluetooth,
+#network {
   margin: 4px 4px 4px 4px;
   border-radius: 4px;
   color: @base;
@@ -77,6 +78,12 @@ window#waybar {
 
 #pulseaudio {
   min-width: 20px;
+}
+
+#network {
+  background-color: @blue;
+  min-width: 20px;
+  padding: 0 5px 0 1px;
 }
 
 /* BATTERY */
