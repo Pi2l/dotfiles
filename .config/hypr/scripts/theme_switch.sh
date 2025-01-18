@@ -38,7 +38,7 @@ update_theme_mode() {
 
 # Function to notify user
 notify_user() {
-  notify-send -u low -i "$bell_icon" "Switching to $1 mode"
+  notify-send -u low -t 3000 "Themes in $next_mode mode" "GTK Theme: $selected_theme\nGTK Icon: $selected_icon"
 }
 
 # Use sed to replace the palette setting in the wallust config file
@@ -63,10 +63,6 @@ fi
 #         echo "Style file not found for $theme theme."
 #     fi
 # }
-
-# Call the function after determining the mode
-# set_waybar_style "$next_mode"
-notify_user "$next_mode"
 
 # swaync color change
 # if [ "$next_mode" = "Dark" ]; then
@@ -241,7 +237,9 @@ update_theme_mode
 wallust run ~/.local/share/walls/default -u
 
 sleep 0.3
-# Display notifications for theme and icon changes
-notify-send -u normal "Themes in $next_mode Mode" "GTK Theme: $selected_theme\nGTK Icon: $selected_icon"
+
+# Call the function after determining the mode
+# set_waybar_style "$next_mode"
+notify_user
 
 exit 0

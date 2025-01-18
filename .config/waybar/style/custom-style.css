@@ -14,6 +14,10 @@ window#waybar {
   background: @background;
 }
 
+#custom-light_dark, #custom-menu, #cpu {
+  margin: 0 4px;
+}
+
 #workspaces {
   margin: 0 4px;
   background-color: transparent;
@@ -42,7 +46,9 @@ window#waybar {
 #battery,
 #pulseaudio,
 #bluetooth,
-#network {
+#network,
+#cpu, 
+#memory {
   margin: 4px 4px 4px 4px;
   border-radius: 4px;
   color: @base;
@@ -89,7 +95,7 @@ window#waybar {
 /* BATTERY */
 /* https://man.archlinux.org/man/waybar-battery.5.en */
 #battery {
-  background-color: @teal;
+  /* background-color: @teal; */
   padding: 0 5px;
 }
 #battery.charging:hover, #battery.discharging:hover {
@@ -100,7 +106,7 @@ window#waybar {
 #battery.normal,
 #battery.normal-down {
 }
-#battery.warning-up, #battery.discharging.warning-up {
+#battery.warning-up, #battery.discharging.warning-up {/* :not-charging ?*/
   color: #f3f2c9;
 }
 #battery.warning {
@@ -111,5 +117,25 @@ window#waybar {
 }
 #battery.discharging.critical {
   color: #f65555;
+}
+#battery.warning-up,
+#battery.discharging.warning-up,
+#battery.warning,
+#battery.warning-down,
+#battery.discharging.critical {
+  background-color: @surface0;
+}
+
+#custom-light_dark, #custom-menu, #custom-cpu {
+  margin: 5px;
+}
+
+#memory {
+  padding: 0 3px;
+  background-color: @green;
+}
+
+#custom-fan {
+
 }
 

@@ -53,8 +53,8 @@
 	"on-click-middle": "",
 	"on-click-right": "",
 	"on-update": "",
-	"on-scroll-up": "$HOME/.config/hypr/scripts/brightness.sh increase 5",
-	"on-scroll-down": "$HOME/.config/hypr/scripts/brightness.sh decrease 5",
+	"on-scroll-up": "$HOME/.config/hypr/scripts/brightness.sh increase 1",
+	"on-scroll-down": "$HOME/.config/hypr/scripts/brightness.sh decrease 1",
 	"smooth-scrolling-threshold": 1,
 },
 "backlight#2": {
@@ -89,6 +89,7 @@
 	"format-time": "{H}h {M}min",
 	"tooltip": true,
 	"tooltip-format": "State: {timeTo}\nPower: {power}w\nHealth: {health}%\nCycles: {cycles}",
+	"on-click": "flatpak run --user org.gnome.PowerStats",
 	"on-click-middle": "$HOME/.config/hypr/scripts/ChangeBlur.sh",
 	"on-click-right": "$HOME/.config/hypr/scripts/Wlogout.sh",
 },
@@ -276,7 +277,7 @@
 	"max-length": 30,
 },
 "network": {
-  "interval": "1",
+  "interval": 1,
 	"format": "{ifname}",
 	"format-wifi": "{icon}",
 	"format-ethernet": "󰌘",
