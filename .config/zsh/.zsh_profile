@@ -8,3 +8,6 @@ if [ -f "$CONFIG_DIR/zsh/.zshrc" ]; then
 fi
 # or find it at home
 [[ -f ~/.zshrc ]] && . ~/.zshrc
+
+#rust
+. "$HOME/.cargo/env"
