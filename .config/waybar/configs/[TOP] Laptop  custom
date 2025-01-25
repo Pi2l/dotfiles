@@ -16,7 +16,6 @@
 
   "modules-left": [
     "custom/menu",
-    "custom/light_dark",
     "custom/separator#line",
     "group/motherboard",
     "custom/separator#line",
@@ -36,8 +35,7 @@
     "group/laptop",
     "pulseaudio#withmic",
     "pulseaudio#microphone",
-    "keyboard-state",
-    "custom/keyboard",
+    "hyprland/language",
     "custom/separator#line",
     "custom/power",
     ],

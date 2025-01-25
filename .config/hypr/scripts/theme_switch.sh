@@ -2,19 +2,18 @@
 ## /* ---- 💫 https://github.com/JaKooLit 💫 ---- */  ##
 
 # Paths
-wallpaper_base_path="$HOME/Pictures/wallpapers/Dynamic-Wallpapers"
-dark_wallpapers="$wallpaper_base_path/Dark"
-light_wallpapers="$wallpaper_base_path/Light"
-hypr_config_path="$HOME/.config/hypr"
-swaync_style="$HOME/.config/swaync/style.css"
+WALLPAPER_BASE_PATH="$HOME/Pictures/wallpapers/Dynamic-Wallpapers"
+DARK_WALLPAPERS="$WALLPAPER_BASE_PATH/Dark"
+LIGHT_WALLPAPERS="$WALLPAPER_BASE_PATH/Light"
+SWAYNC_STYLE="$HOME/.config/swaync/style.css"
 SCRIPTSDIR="$HOME/.config/hypr/scripts"
-bell_icon="$HOME/.config/swaync/images/bell.png"
+BELL_ICON="$HOME/.config/swaync/images/bell.png"
 
-kitty_conf="$HOME/.config/kitty/kitty.conf"
+KITTY_CONF="$HOME/.config/kitty/kitty.conf"
 
-wallust_config="$HOME/.config/wallust/wallust.toml"
-pallete_dark="dark16"
-pallete_light="light16"
+WALLUST_CONFIG="$HOME/.config/wallust/wallust.toml"
+PALLETE_DARK="dark16"
+PALLETE_LIGHT="light16"
 
 if [ ! -z $1 ]; then
   next_mode="$1"
@@ -23,11 +22,11 @@ else
   if [ "$(cat $HOME/.cache/.theme_mode)" = "Light" ]; then
     next_mode="Dark"
     # Logic for Dark mode
-    wallpaper_path="$dark_wallpapers"
+    wallpaper_path="$DARK_WALLPAPERS"
   else
     next_mode="Light"
     # Logic for Light mode
-    wallpaper_path="$light_wallpapers"
+    wallpaper_path="$LIGHT_WALLPAPERS"
   fi
 fi
 
@@ -43,9 +42,9 @@ notify_user() {
 
 # Use sed to replace the palette setting in the wallust config file
 if [ "$next_mode" = "Dark" ]; then
-  sed -i 's/^palette = .*/palette = "'"$pallete_dark"'"/' "$wallust_config"
+  sed -i 's/^palette = .*/palette = "'"$PALLETE_DARK"'"/' "$WALLUST_CONFIG"
 else
-  sed -i 's/^palette = .*/palette = "'"$pallete_light"'"/' "$wallust_config"
+  sed -i 's/^palette = .*/palette = "'"$PALLETE_LIGHT"'"/' "$WALLUST_CONFIG"
 fi
 
 # Function to set Waybar style; TODO:
@@ -66,22 +65,22 @@ fi
 
 # swaync color change
 # if [ "$next_mode" = "Dark" ]; then
-#     sed -i '/@define-color noti-bg/s/rgba([0-9]*,\s*[0-9]*,\s*[0-9]*,\s*[0-9.]*);/rgba(0, 0, 0, 0.8);/' "${swaync_style}"
-#     sed -i '/@define-color noti-bg-alt/s/#.*;/#111111;/' "${swaync_style}"
+#     sed -i '/@define-color noti-bg/s/rgba([0-9]*,\s*[0-9]*,\s*[0-9]*,\s*[0-9.]*);/rgba(0, 0, 0, 0.8);/' "${SWAYNC_STYLE}"
+#     sed -i '/@define-color noti-bg-alt/s/#.*;/#111111;/' "${SWAYNC_STYLE}"
 # else
-#     sed -i '/@define-color noti-bg/s/rgba([0-9]*,\s*[0-9]*,\s*[0-9]*,\s*[0-9.]*);/rgba(255, 255, 255, 0.9);/' "${swaync_style}"
-#     sed -i '/@define-color noti-bg-alt/s/#.*;/#F0F0F0;/' "${swaync_style}"
+#     sed -i '/@define-color noti-bg/s/rgba([0-9]*,\s*[0-9]*,\s*[0-9]*,\s*[0-9.]*);/rgba(255, 255, 255, 0.9);/' "${SWAYNC_STYLE}"
+#     sed -i '/@define-color noti-bg-alt/s/#.*;/#F0F0F0;/' "${SWAYNC_STYLE}"
 # fi
 
 # kitty background color change
 # if [ "$next_mode" = "Dark" ]; then
-#     sed -i '/^foreground /s/^foreground .*/foreground #dddddd/' "${kitty_conf}"
-#     sed -i '/^background /s/^background .*/background #000000/' "${kitty_conf}"
-#     sed -i '/^cursor /s/^cursor .*/cursor #dddddd/' "${kitty_conf}"
+#     sed -i '/^foreground /s/^foreground .*/foreground #dddddd/' "${KITTY_CONF}"
+#     sed -i '/^background /s/^background .*/background #000000/' "${KITTY_CONF}"
+#     sed -i '/^cursor /s/^cursor .*/cursor #dddddd/' "${KITTY_CONF}"
 # else
-#     sed -i '/^foreground /s/^foreground .*/foreground #000000/' "${kitty_conf}"
-#     sed -i '/^background /s/^background .*/background #dddddd/' "${kitty_conf}"
-#     sed -i '/^cursor /s/^cursor .*/cursor #000000/' "${kitty_conf}"
+#     sed -i '/^foreground /s/^foreground .*/foreground #000000/' "${KITTY_CONF}"
+#     sed -i '/^background /s/^background .*/background #dddddd/' "${KITTY_CONF}"
+#     sed -i '/^cursor /s/^cursor .*/cursor #000000/' "${KITTY_CONF}"
 # fi
 # for pid in $(pidof kitty); do
 #     kill -SIGUSR1 "$pid"
@@ -89,9 +88,9 @@ fi
 
 # Set Dynamic Wallpaper for Dark or Light Mode
 # if [ "$next_mode" = "Dark" ]; then
-#     next_wallpaper="$(find "${dark_wallpapers}" -type f \( -iname "*.jpg" -o -iname "*.png" \) -print0 | shuf -n1 -z | xargs -0)"
+#     next_wallpaper="$(find "${DARK_WALLPAPERS}" -type f \( -iname "*.jpg" -o -iname "*.png" \) -print0 | shuf -n1 -z | xargs -0)"
 # else
-#     next_wallpaper="$(find "${light_wallpapers}" -type f \( -iname "*.jpg" -o -iname "*.png" \) -print0 | shuf -n1 -z | xargs -0)"
+#     next_wallpaper="$(find "${LIGHT_WALLPAPERS}" -type f \( -iname "*.jpg" -o -iname "*.png" \) -print0 | shuf -n1 -z | xargs -0)"
 # fi
 
 # Update wallpaper using swww command
@@ -236,7 +235,7 @@ update_theme_mode
 
 wallust run ~/.local/share/walls/default -u
 
-sleep 0.3
+$SCRIPTSDIR/refresh.sh
 
 # Call the function after determining the mode
 # set_waybar_style "$next_mode"

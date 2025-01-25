@@ -80,7 +80,6 @@
 	"format": "{icon} {capacity}%",
 	"format-charging": " {capacity}%",
 	"format-plugged": "  {capacity}%",
-	"format-alt-click": "click",
   "format-alt": "{capacity}%",
 	"format-full": "{icon} {capacity}%",
 	"format-icons": [
@@ -193,9 +192,7 @@
 	"tooltip-format": "{used} used out of {total} on {path} ({percentage_used}%)",
 },
 "hyprland/language": {
-	"format": "Lang: {}",
-	"format-en": "US",
-	"format-tr": "Korea",
+	"format": "{short}",
 	"keyboard-name": "at-translated-set-2-keyboard",
 	"on-click": "hyprctl switchxkblayout $SET_KB next"
 },
@@ -235,7 +232,7 @@
 	},
 	"format-icons": {
 		"locked": "",
-		"unlocked": ""
+		"unlocked": "󰿆"
 	},
 },
 "memory": {
