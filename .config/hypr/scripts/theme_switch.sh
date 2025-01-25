@@ -16,15 +16,15 @@ PALLETE_DARK="dark16"
 PALLETE_LIGHT="light16"
 
 if [ ! -z $1 ]; then
-  next_mode="$1"
+  NEXT_MODE="$1"
 else
   # Determine current theme mode
   if [ "$(cat $HOME/.cache/.theme_mode)" = "Light" ]; then
-    next_mode="Dark"
+    NEXT_MODE="Dark"
     # Logic for Dark mode
     wallpaper_path="$DARK_WALLPAPERS"
   else
-    next_mode="Light"
+    NEXT_MODE="Light"
     # Logic for Light mode
     wallpaper_path="$LIGHT_WALLPAPERS"
   fi
@@ -32,16 +32,16 @@ fi
 
 # Function to update theme mode for the next cycle
 update_theme_mode() {
-  echo "$next_mode" >~/.cache/.theme_mode
+  echo "$NEXT_MODE" >~/.cache/.theme_mode
 }
 
 # Function to notify user
 notify_user() {
-  notify-send -u low -t 3000 "Themes in $next_mode mode" "GTK Theme: $selected_theme\nGTK Icon: $selected_icon"
+  notify-send -u low -t 3000 "Themes in $NEXT_MODE mode" "GTK Theme: $selected_theme\nGTK Icon: $selected_icon"
 }
 
 # Use sed to replace the palette setting in the wallust config file
-if [ "$next_mode" = "Dark" ]; then
+if [ "$NEXT_MODE" = "Dark" ]; then
   sed -i 's/^palette = .*/palette = "'"$PALLETE_DARK"'"/' "$WALLUST_CONFIG"
 else
   sed -i 's/^palette = .*/palette = "'"$PALLETE_LIGHT"'"/' "$WALLUST_CONFIG"
@@ -97,7 +97,7 @@ fi
 # $swww "${next_wallpaper}" $effect
 
 # Set Kvantum Manager theme & QT5/QT6 settings
-if [ "$next_mode" = "Dark" ]; then
+if [ "$NEXT_MODE" = "Dark" ]; then
   kvantum_theme="Catppuccin-Mocha"
   qt5ct_color_scheme="$HOME/.config/qt5ct/colors/Catppuccin-Mocha.conf"
   qt6ct_color_scheme="$HOME/.config/qt6ct/colors/Catppuccin-Mocha.conf"
@@ -141,7 +141,7 @@ set_custom_gtk_theme() {
     if [[ "$mode" == "Light" ]]; then
       theme_section="[light-theme]"
     else
-      theme_section="[dart-theme]"
+      theme_section="[dark-theme]"
     fi
 
     # Parse the theme and icon values from the file
@@ -221,24 +221,45 @@ set_custom_gtk_theme() {
 
 }
 
-# Call the function to set GTK theme and icon theme based on mode
-set_custom_gtk_theme "$next_mode"
+update_sunset() {
+  MODE=$1
+  CONF_FILE="$HOME/.config/theme-switcher/theme"
+  TEMPERATURE=5000
 
-# Update theme mode for the next cycle
+  if [[ -e "$CONF_FILE" ]]; then
+    if [[ "$mode" == "Light" ]]; then
+      theme_section="[light-theme]"
+    else
+      theme_section="[dark-theme]"
+    fi
+    CONF_TEMPERATURE=$(awk -v section="$theme_section" '
+              $0 == section {found=1} 
+              found && $0 ~ /sunset-temperature=/ {gsub(/sunset-temperature=|'\''/,""); print; exit}
+              ' "$CONF_FILE")
+    if [[ -z "$CONF_TEMPERATURE" ]]; then
+      TEMPERATURE=5000
+    else
+      TEMPERATURE="$CONF_TEMPERATURE"
+    fi
+  fi
+
+  if [ "$MODE" == "Dark" ]; then
+    hyprsunset -t $TEMPERATURE &
+  else
+    # pkill hyprsunset
+    hyprsunset -t $TEMPERATURE & # TODO: add check if themperature is more than 6000K
+  fi
+}
+
+set_custom_gtk_theme "$NEXT_MODE"
+
 update_theme_mode
-
-# sleep 0.5
-# # Run remaining scripts
-# ${SCRIPTSDIR}/WallustSwww.sh
-# sleep 1
-# ${SCRIPTSDIR}/refresh.sh # if this script is launched using systemctl then waybar dies after this script is executed
+update_sunset "$NEXT_MODE"
 
 wallust run ~/.local/share/walls/default -u
-
 $SCRIPTSDIR/refresh.sh
 
-# Call the function after determining the mode
-# set_waybar_style "$next_mode"
+sleep 0.1
 notify_user
 
 exit 0

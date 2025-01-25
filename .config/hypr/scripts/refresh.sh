@@ -6,7 +6,7 @@ for _prs in "${_ps[@]}"; do
   fi
 done
 
-sleep 0.5
+# sleep 0.5
 #Restart waybar
 waybar &
 
