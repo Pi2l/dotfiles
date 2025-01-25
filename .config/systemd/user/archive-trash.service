@@ -1,0 +1,6 @@
+[Unit]
+Description=Trash archiving service
+
+[Service]
+Type=oneshot
+ExecStart=/bin/bash %h/.config/scripts/archive-files/archive-deleted-files.sh
