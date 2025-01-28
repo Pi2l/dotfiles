@@ -98,6 +98,7 @@ window#waybar {
   /* background-color: @teal; */
   padding: 0 5px;
 }
+
 #battery.charging:hover, #battery.discharging:hover {
 }
 #battery.full,
@@ -105,19 +106,26 @@ window#waybar {
 #battery.normal-up,
 #battery.normal,
 #battery.normal-down {
+  color: @text;
 }
-#battery.warning-up, #battery.discharging.warning-up {/* :not-charging ?*/
+#battery.discharging.warning-up {/* :not(.charging) ?*/
   color: #f3f2c9;
 }
-#battery.warning {
+#battery.discharging.warning {
   color: #f7ca88;
 }
-#battery.warning-down {
+#battery.discharging.warning-down {
   color: #fea275;
 }
 #battery.discharging.critical {
   color: #f65555;
 }
+
+#battery.full,
+#battery.good,
+#battery.normal-up,
+#battery.normal,
+#battery.normal-down,
 #battery.warning-up,
 #battery.discharging.warning-up,
 #battery.warning,
@@ -126,8 +134,14 @@ window#waybar {
   background-color: @surface0;
 }
 
+#battery.charging {
+  color: @green;
+}
 #custom-light_dark, #custom-menu, #custom-cpu {
   margin: 5px;
+}
+#custom-power {
+  margin-right: 10px;
 }
 
 #memory {

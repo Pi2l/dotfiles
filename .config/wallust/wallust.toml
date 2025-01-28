@@ -18,7 +18,7 @@ color_space = "labmixed"
 #  * softdark16  - softdark with 16 color variation
 #  * softlight   - Light with soft pastel colors, counterpart of `harddark`
 #  * softlight16 - softlight with 16 color variation
-palette = "dark16"
+palette = "light16"
 
 # Difference between similar colors, used by the colorspace:
 #  1          Not perceptible by human eyes.
@@ -37,3 +37,6 @@ waybar.target = '~/.config/waybar/wallust/colors-waybar.css'
 
 kitty.template = 'colors-kitty.conf'
 kitty.target = '~/.cache/wallust/kitty-colors.conf'
+
+wofi.template = 'colors-wofi.css'
+wofi.target = '~/.config/wofi/wallust/colors-wofi.css'
