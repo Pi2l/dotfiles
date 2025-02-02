@@ -1,0 +1,38 @@
+@import '.config/wofi/wallust/colors-wofi.css';
+
+#window {
+  /*background-color: @background;*/
+  background-color: rgba(24, 24, 24, 0.85);
+  border-radius: 1rem;
+  font-size: 1.2rem;
+  font-family: "JetBrainsMono Nerd Font";
+}
+
+#window #outer-box {
+}
+
+#input {
+  background-color: rgba(24, 24, 24, 0.9);
+  color: #f2f2f2;
+  border: none;
+  border-bottom: 1px solid rgba(24, 24, 24, 0.2);
+  padding: 0.8rem 1rem;
+  font-size: 1.5rem;
+  border-radius: 1rem 1rem 0 0;
+}
+
+#text {
+  width: 0;
+}
+
+##window #outer-box #scroll #inner-box #entry #img {
+  margin: 2px;
+  padding-left: 40px;
+  border-radius: 4px;
+}
+
+#window #outer-box #scroll #inner-box #entry:selected {
+  color: #fff;
+  background-color: rgba(255, 255, 255, 0.1);
+  outline: none;
+}
