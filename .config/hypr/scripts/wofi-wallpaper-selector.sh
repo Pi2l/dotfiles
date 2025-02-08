@@ -63,5 +63,5 @@ if [ -n "$selected" ]; then
   echo "$original_path" >"$HOME/.cache/current_wallpaper"
 
   # Optional: Notify user
-  notify-send "Wallpaper" "Wallpaper has been updated: '$original_path'" -i "$original_path"
+  # notify-send "Wallpaper" "Wallpaper has been updated: '$original_path'" -i "$original_path"
 fi

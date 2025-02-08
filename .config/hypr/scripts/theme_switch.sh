@@ -11,10 +11,6 @@ BELL_ICON="$HOME/.config/swaync/images/bell.png"
 
 KITTY_CONF="$HOME/.config/kitty/kitty.conf"
 
-WALLUST_CONFIG="$HOME/.config/wallust/wallust.toml"
-PALLETE_DARK="dark16"
-PALLETE_LIGHT="light16"
-
 if [ ! -z $1 ]; then
   NEXT_MODE="$1"
 else
@@ -40,6 +36,9 @@ notify_user() {
   notify-send -u low -t 3000 "Themes in $NEXT_MODE mode" "GTK Theme: $selected_theme\nGTK Icon: $selected_icon"
 }
 
+WALLUST_CONFIG="$HOME/.dotfiles/.config/wallust/wallust.toml"
+PALLETE_DARK="dark16"
+PALLETE_LIGHT="light16"
 # Use sed to replace the palette setting in the wallust config file
 if [ "$NEXT_MODE" = "Dark" ]; then
   sed -i 's/^palette = .*/palette = "'"$PALLETE_DARK"'"/' "$WALLUST_CONFIG"
@@ -243,10 +242,10 @@ update_sunset() {
     fi
   fi
 
+  pkill hyprsunset
   if [ "$MODE" == "Dark" ]; then
     hyprsunset -t $TEMPERATURE &
   else
-    # pkill hyprsunset
     hyprsunset -t $TEMPERATURE & # TODO: add check if themperature is more than 6000K
   fi
 }
@@ -259,7 +258,7 @@ update_sunset "$NEXT_MODE"
 wallust run ~/.local/share/walls/default -u
 $SCRIPTSDIR/refresh.sh
 
-sleep 0.1
+wait $!
 notify_user
 
 exit 0
