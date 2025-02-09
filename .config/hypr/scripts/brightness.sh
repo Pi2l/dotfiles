@@ -1,5 +1,7 @@
 #!/bin/bash
 
+SCRIPTS_DIR="${XDG_CONFIG_HOME:-$HOME/.config}/scripts/"
+
 increase_brightness() {
   local step=$1
   brightnessctl s "${step}%+"
@@ -26,9 +28,11 @@ fi
 case "$command" in
 increase)
   increase_brightness "$step"
+  $SCRIPTS_DIR/notification/notify-user.sh brightness
   ;;
 decrease)
   decrease_brightness "$step"
+  $SCRIPTS_DIR/notification/notify-user.sh brightness
   ;;
 *)
   echo "Usage: $0 {increase|decrease} <step>"

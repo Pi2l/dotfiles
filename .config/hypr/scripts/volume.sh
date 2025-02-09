@@ -1,5 +1,6 @@
 #!/bin/bash
 
+SCRIPTS_DIR="${XDG_CONFIG_HOME:-$HOME/.config}/scripts/"
 # Get the current sink (output device)
 DEFAULT_SINK=$(pactl get-default-sink)
 
@@ -102,27 +103,35 @@ microphone_volume_down() {
 case "$1" in
 up)
   volume_up "$step"
+  $SCRIPTS_DIR/notification/notify-user.sh volume
   ;;
 down)
   volume_down "$step"
+  $SCRIPTS_DIR/notification/notify-user.sh volume
   ;;
 toggle-volume)
   toggle_volume
+  $SCRIPTS_DIR/notification/notify-user.sh volume
   ;;
 toggle-microphone)
   toggle_microphone
+  $SCRIPTS_DIR/notification/notify-user.sh microphone
   ;;
 mute)
   mute
+  $SCRIPTS_DIR/notification/notify-user.sh volume
   ;;
 unmute)
   unmute
+  $SCRIPTS_DIR/notification/notify-user.sh volume
   ;;
 mic-up)
   microphone_volume_up "$step"
+  $SCRIPTS_DIR/notification/notify-user.sh microphone
   ;;
 mic-down)
   microphone_volume_down "$step"
+  $SCRIPTS_DIR/notification/notify-user.sh microphone
   ;;
 *)
   echo "Usage: $0 {(up|down [<step>])|toggle-volume|unmute|mute|toggle-microphone}"
