@@ -1,10 +1,10 @@
-@import '../waybar/wallust/colors-waybar.css';
+@import './wallust/colors-wlogout.css';
 
 window {
-  font-family: Fira Code Medium;
+  font-family: Source Code Pro;
   font-size: 16pt;
-  color: @foreground; /* text */
-  background-color: rgba(30, 30, 46, 0.6);
+  color: @foreground;
+  background-color: @rgb_bg;
 }
 
 button {
@@ -25,7 +25,7 @@ button:focus {
 }
 
 button:hover {
-  /*background-color: @color12;*/
+  /*background-color: @foreground;*/
   background-size: 50%;
   /*margin: 30px;*/
   border-radius: 80px;

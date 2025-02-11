@@ -40,3 +40,6 @@ kitty.target = '~/.cache/wallust/kitty-colors.conf'
 
 wofi.template = 'colors-wofi.css'
 wofi.target = '~/.config/wofi/wallust/colors-wofi.css'
+
+wlogout.template = 'colors-wlogout.css'
+wlogout.target = '~/.config/wlogout/wallust/colors-wlogout.css'
