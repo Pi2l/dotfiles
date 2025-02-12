@@ -10,8 +10,15 @@ window#waybar {
 	font-family: 'Source Code Pro', sans-serif;
 	font-size: 1.2em;
 	font-weight: 400;
+  border-radius: 10px;
   color: @foreground;
   background: @background;
+}
+
+tooltip {
+  background: @background;
+  color: @foreground;
+  border-radius: 7px;
 }
 
 #custom-light_dark, #custom-menu, #cpu {
