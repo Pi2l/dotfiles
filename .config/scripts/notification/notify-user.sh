@@ -77,7 +77,16 @@ notify_brightness() {
   notify "3000" "$icon" "string:x-canonical-private-synchronous:brightness" "Brightness" "Level: $brightness_percent%"
 }
 
+notify_kb_layout() {
+  local $current_kb="$1"
+
+  notify "1000" "" "" "Layout" "$current_kb"
+}
+
 case "$1" in
+kblayout)
+  notify_kb_layout "$2"
+  ;;
 volume)
   notify_volume
   ;;

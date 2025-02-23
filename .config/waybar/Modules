@@ -196,7 +196,7 @@
 "hyprland/language": {
 	"format": "{short}",
 	"keyboard-name": "at-translated-set-2-keyboard",
-	"on-click": "hyprctl switchxkblayout $SET_KB next"
+	"on-click": "$HOME/.config/hypr/scripts/change-kblayout.sh toggle",
 },
 "hyprland/submap": {
 	"format": "<span style=\"italic\">  {}</span>", // Icon: expand-arrows-alt
