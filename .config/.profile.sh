@@ -32,3 +32,19 @@ export LESS='-R --use-color'
 
 # Set dotfiles dir
 export DOTS_DIR="$HOME/.dotfiles/"
+
+# Locale
+export LANG=en_US.UTF-8
+export LC_CTYPE=en_US.UTF-8
+export LC_NUMERIC=uk_UA.UTF-8
+export LC_TIME=uk_UA.UTF-8
+export LC_COLLATE=uk_UA.UTF-8
+export LC_MONETARY=uk_UA.UTF-8
+export LC_MESSAGES=en_US.UTF-8
+export LC_PAPER=en_US.UTF-8
+export LC_NAME=en_US.UTF-8
+export LC_ADDRESS=uk_UA.UTF-8
+export LC_TELEPHONE=uk_UA.UTF-8
+export LC_MEASUREMENT=en_US.UTF-8
+export LC_IDENTIFICATION=uk_UA.UTF-8
+# export LC_ALL=en_US.UTF-8
