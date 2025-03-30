@@ -158,7 +158,7 @@
 "clock#6": {
   "interval": 1,
   "format": "{:%H:%M:%S}", // 24H
-  "format-alt": "[{:%a %m %b %H:%M}]",
+  "format-alt": "[{:%a %d %b %H:%M}]",
 	"tooltip-format": "<tt><small>{calendar}</small></tt>",
 	"calendar": {
 		"mode": "year",
