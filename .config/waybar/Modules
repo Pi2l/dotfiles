@@ -403,6 +403,43 @@
 	"tooltip-format": "{source_desc} | {source_volume}%",
 	"scroll-step": 5,
 },
+"pulseaudio#withmic_pipewire": {
+	"format": "{icon} {volume}%",
+	"format-bluetooth": "{icon} 󰂰 {volume}%",
+	"format-muted": "󰝟",
+	"format-icons": {
+		"headphone": "",
+		"hands-free": "",
+		"headset": "",
+		"phone": "",
+		"portable": "",
+		"car": "",
+		"default": [
+			"", "", "󰕾", ""
+		],
+		"ignored-sinks": [
+			"Easy Effects Sink"
+		],
+	},
+	"scroll-step": 5.0,
+	"on-click": "$HOME/.config/hypr/scripts/volume.sh toggle-volume",
+	"on-click-right": "pwvucontrol",
+	"on-scroll-up": "$HOME/.config/hypr/scripts/volume.sh up 1",
+	"on-scroll-down": "$HOME/.config/hypr/scripts/volume.sh down 1",
+	"tooltip-format": "{icon} {desc} | {volume}%",
+	"smooth-scrolling-threshold": 1,
+},
+"pulseaudio#microphone_pipewire": {
+	"format": "{format_source}",
+	"format-source": " {volume}%",
+	"format-source-muted": "󰍭",
+	"on-click": "$HOME/.config/hypr/scripts/volume.sh toggle-microphone",
+	"on-click-right": "pwvucontrol",
+	"on-scroll-up": "$HOME/.config/hypr/scripts/volume.sh mic-up 1",
+	"on-scroll-down": "$HOME/.config/hypr/scripts/volume.sh mic-down 1",
+	"tooltip-format": "{source_desc} | {source_volume}%",
+	"scroll-step": 5,
+},
 "tray": {
 	"icon-size": 20,
 	"spacing": 4,
