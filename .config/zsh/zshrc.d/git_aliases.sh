@@ -32,7 +32,7 @@ alias gc='git checkout'
 alias gcb='git checkout -b'
 
 # reset
-alias gres='git reset' 
+alias gres='git reset'
 alias gresh='git reset HEAD~' # git reset HEAD~ to undo last commit and make commited files to be staged
 
 # diff
