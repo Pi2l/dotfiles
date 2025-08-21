@@ -1,0 +1,96 @@
+{
+    "terminal.explorerKind": "both",
+    "terminal.integrated.defaultProfile.windows": "Git Bash",
+
+    "workbench.settings.editor": "json",
+    "editor.hover.delay": 500,
+    "editor.tabSize": 2,
+    "diffEditor.ignoreTrimWhitespace": false,
+    "window.zoomLevel": 1,
+    "window.commandCenter": false,
+    "workbench.layoutControl.enabled": false,
+    "workbench.colorTheme": "Atom One Dark",
+
+    // To find element to customise use: Ctrl+Shift+P -> 'Developer: Inspect TM Scopes' -> inxed to word
+    // All rules: https://code.visualstudio.com/api/language-extensions/semantic-highlight-guide
+    "editor.semanticTokenColorCustomizations": {
+        "enabled": true, // enable for all themes
+        "rules": {
+            "*.static": {
+                "fontStyle": "italic"
+            },
+            "annotation": {
+                "foreground": "#9ae4ff"
+            },
+            "typeParameter": {
+                "foreground": "#ef61ef",
+                "fontStyle": "underline"
+            },
+            "interface": { "italic": true },
+            "enum": "#E06C75",
+            "*.typeArgument": {
+                "foreground": "#61AFEF",
+                "fontStyle": "italic"
+            }
+        }
+    },
+
+    // https://www.reddit.com/r/vscode/comments/dzxvdj/is_there_a_way_to_edit_an_existing_color_theme/
+    "editor.tokenColorCustomizations": {
+        "[Atom One Dark]": {
+            "textMateRules": [{
+                "scope": "meta.class.java punctuation.separator.types.java",
+                "settings": {
+                    "foreground": "#E06C75"
+                }
+            }, {
+                "scope": "meta.class.java punctuation.bracket.angle.java",
+                "settings": {
+                    "foreground": "#E06C75"
+                }
+            }, {
+                "scope": "meta.method.java punctuation.bracket.angle.java",
+                "settings": {
+                    "foreground": "#ABB2BF"
+                }
+            }, {
+                "scope": "invalid.deprecated.entity.other.attribute-name.html",
+                "settings": {
+                    "fontStyle": "italic strikethrough",
+                    "foreground": "#D19A66"
+                }
+            }]
+        }
+    },
+    "workbench.colorCustomizations": {
+        "terminal.findMatchBackground": "#f47e2445",
+        "terminal.findMatchBorder": "#ff0000",
+        "terminal.findMatchHighlightBackground": "#fcec1350",
+        "terminal.findMatchHighlightBorder": "#ff0000"
+    },
+    "[typescript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "java.format.settings.profile": "GoogleStyle",
+    "java.format.settings.url": "https://raw.githubusercontent.com/google/styleguide/gh-pages/eclipse-java-google-style.xml",
+    "[java]": {
+        "editor.defaultFormatter": "redhat.java"
+    },
+    "[sql]": {},
+    "debug.autoExpandLazyVariables": "off",
+    "git.blame.editorDecoration.enabled": true,
+    "sonarlint.focusOnNewCode": false,
+    "workbench.editor.tabSizingFixedMinWidth": 500,
+    "workbench.editorAssociations": {
+        "*.svg": "imagePreview.previewEditor"
+    },
+    "editor.minimap.size": "fit",
+    "editor.minimap.showSlider": "always",
+    "editor.minimap.renderCharacters": false,
+    "git.blame.statusBarItem.enabled": false,
+    "editor.fontFamily": "'JetBrains Mono'",
+    "editor.fontLigatures": true,
+
+    // extensions:
+    "native-ascii-converter.letter-case": "Upper case"
+}

@@ -1,2 +1,8 @@
 **/theme-switch.timer
 **/.config/**/wallust/
+
+.config/Code/User/*
+
+!.config/Code/User/profiles/*.json
+!.config/Code/User/keybindings.json
+!.config/Code/User/settings.json

@@ -1,0 +1,117 @@
+{
+  "terminal.explorerKind": "both",
+  "terminal.integrated.profiles.windows": {
+    "Git Bash": { "path": "C:\\Program Files\\Git\\bin\\bash.exe" }
+  },
+  "terminal.integrated.defaultProfile.windows": "Git Bash",
+
+  "workbench.settings.editor": "json",
+  "editor.hover.delay": 500,
+  "editor.tabSize": 2,
+  "workbench.colorTheme": "Atom One Dark",
+  "diffEditor.ignoreTrimWhitespace": false,
+  "window.zoomLevel": 1,
+  "window.commandCenter": false,
+  "workbench.layoutControl.enabled": false,
+  "[java]": {
+    "editor.defaultFormatter": "redhat.java"
+  },
+  "sonarlint.rules": {
+    "java:S134": {
+      "level": "on"
+    },
+    "java:S121": {
+      "level": "on"
+    },
+    "java:S4604": {
+      "level": "on"
+    },
+    "java:S1698": {
+      "level": "on"
+    },
+    "java:S5128": {
+      "level": "on"
+    },
+    "java:S2203": {
+      "level": "on"
+    },
+    "java:S2308": {
+      "level": "on"
+    },
+    "java:S2162": {
+      "level": "on"
+    },
+    "java:S2221": {
+      "level": "on"
+    },
+    "java:S2156": {
+      "level": "on"
+    },
+    "java:S2165": {
+      "level": "on"
+    },
+    "java:S126": {
+      "level": "on"
+    },
+    "java:S1194": {
+      "level": "on"
+    },
+    "java:S2143": {
+      "level": "on"
+    },
+    "java:S2096": {
+      "level": "on"
+    },
+    "java:S1696": {
+      "level": "on"
+    },
+    "java:S1695": {
+      "level": "on"
+    },
+    "java:S3553": {
+      "level": "on"
+    },
+    "java:S2325": {
+      "level": "on"
+    },
+    "java:S2057": {
+      "level": "on"
+    },
+    "java:S2059": {
+      "level": "on"
+    },
+    "java:S4926": {
+      "level": "on"
+    },
+    "java:S4266": {
+      "level": "on"
+    },
+    "java:S881": {
+      "level": "on"
+    },
+    "java:S109": {
+      "level": "on"
+    },
+    "java:S6904": {
+      "level": "on"
+    },
+    "java:S4551": {
+      "level": "on"
+    },
+    "java:S5194": {
+      "level": "on"
+    },
+    "java:S1114": {
+      "level": "on"
+    },
+    "java:S3725": {
+      "level": "on"
+    },
+    "java:S3750": {
+      "level": "on"
+    },
+    "javascript:S1440": {
+      "level": "on"
+    }
+  }
+}
