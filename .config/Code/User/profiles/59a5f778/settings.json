@@ -1,6 +1,5 @@
 {
     "terminal.explorerKind": "both",
-    "terminal.integrated.defaultProfile.windows": "Git Bash",
 
     "workbench.settings.editor": "json",
     "editor.hover.delay": 500,
@@ -79,7 +78,6 @@
     "[sql]": {},
     "debug.autoExpandLazyVariables": "off",
     "git.blame.editorDecoration.enabled": true,
-    "sonarlint.focusOnNewCode": false,
     "workbench.editor.tabSizingFixedMinWidth": 500,
     "workbench.editorAssociations": {
         "*.svg": "imagePreview.previewEditor"
@@ -90,7 +88,11 @@
     "git.blame.statusBarItem.enabled": false,
     "editor.fontFamily": "'JetBrains Mono'",
     "editor.fontLigatures": true,
-
+    "editor.inlayHints.enabled": "offUnlessPressed",
+    "editor.rulers": [
+        120
+    ],
+    "python.defaultInterpreterPath": "/bin/python",
+    
     // extensions:
-    "native-ascii-converter.letter-case": "Upper case"
 }

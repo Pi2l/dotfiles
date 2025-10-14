@@ -1,1 +1,510 @@
-[{"identifier":{"id":"redhat.java","uuid":"198a707e-28af-4e84-8610-6e2f628dd12d"},"version":"1.42.0","location":{"$mid":1,"path":"/home/mewer/.vscode/extensions/redhat.java-1.42.0-linux-x64","scheme":"file"},"relativeLocation":"redhat.java-1.42.0-linux-x64","metadata":{"installedTimestamp":1747852202369,"pinned":false,"source":"gallery","id":"198a707e-28af-4e84-8610-6e2f628dd12d","publisherId":"eed56242-9699-4317-8bc7-e9f4b9bdd3ff","publisherDisplayName":"Red Hat","targetPlatform":"linux-x64","updated":false,"private":false,"isPreReleaseVersion":false,"hasPreReleaseVersion":false}},{"identifier":{"id":"vscjava.vscode-maven","uuid":"b0f06c6b-24fb-4d7b-bd79-bc5e2fa17312"},"version":"0.44.0","location":{"$mid":1,"path":"/home/mewer/.vscode/extensions/vscjava.vscode-maven-0.44.0","scheme":"file"},"relativeLocation":"vscjava.vscode-maven-0.44.0","metadata":{"installedTimestamp":1747852556311,"pinned":false,"source":"gallery","id":"b0f06c6b-24fb-4d7b-bd79-bc5e2fa17312","publisherId":"bae08b87-578e-41ec-ab1c-0b036e7add88","publisherDisplayName":"Microsoft","targetPlatform":"undefined","updated":false,"private":false,"isPreReleaseVersion":false,"hasPreReleaseVersion":false}},{"identifier":{"id":"visualstudioexptteam.intellicode-api-usage-examples","uuid":"9fa2a00e-3bfa-4c2a-abc4-a865bb2b5cf3"},"version":"0.2.9","location":{"$mid":1,"path":"/home/mewer/.vscode/extensions/visualstudioexptteam.intellicode-api-usage-examples-0.2.9","scheme":"file"},"relativeLocation":"visualstudioexptteam.intellicode-api-usage-examples-0.2.9","metadata":{"installedTimestamp":1747852561738,"pinned":false,"source":"gallery","id":"9fa2a00e-3bfa-4c2a-abc4-a865bb2b5cf3","publisherId":"e8db1608-52e8-4d8d-92a6-779c5db302a9","publisherDisplayName":"Microsoft","targetPlatform":"undefined","updated":false,"private":false,"isPreReleaseVersion":false,"hasPreReleaseVersion":false}},{"identifier":{"id":"vscjava.vscode-java-dependency","uuid":"7865e561-1c83-410e-9b99-aabada597a7e"},"version":"0.24.1","location":{"$mid":1,"path":"/home/mewer/.vscode/extensions/vscjava.vscode-java-dependency-0.24.1","scheme":"file"},"relativeLocation":"vscjava.vscode-java-dependency-0.24.1","metadata":{"installedTimestamp":1747852561740,"pinned":false,"source":"gallery","id":"7865e561-1c83-410e-9b99-aabada597a7e","publisherId":"bae08b87-578e-41ec-ab1c-0b036e7add88","publisherDisplayName":"Microsoft","targetPlatform":"undefined","updated":false,"private":false,"isPreReleaseVersion":false,"hasPreReleaseVersion":false}},{"identifier":{"id":"visualstudioexptteam.vscodeintellicode","uuid":"876e8f93-74d0-4f4f-91b7-34a09f19f444"},"version":"1.3.2","location":{"$mid":1,"path":"/home/mewer/.vscode/extensions/visualstudioexptteam.vscodeintellicode-1.3.2","scheme":"file"},"relativeLocation":"visualstudioexptteam.vscodeintellicode-1.3.2","metadata":{"installedTimestamp":1747852561738,"pinned":false,"source":"gallery","id":"876e8f93-74d0-4f4f-91b7-34a09f19f444","publisherId":"e8db1608-52e8-4d8d-92a6-779c5db302a9","publisherDisplayName":"Microsoft","targetPlatform":"undefined","updated":false,"private":false,"isPreReleaseVersion":false,"hasPreReleaseVersion":false}},{"identifier":{"id":"vscjava.vscode-java-test","uuid":"67c06b0d-1891-42ca-b2a8-113e79bff069"},"version":"0.43.1","location":{"$mid":1,"path":"/home/mewer/.vscode/extensions/vscjava.vscode-java-test-0.43.1","scheme":"file"},"relativeLocation":"vscjava.vscode-java-test-0.43.1","metadata":{"installedTimestamp":1747852561739,"pinned":false,"source":"gallery","id":"67c06b0d-1891-42ca-b2a8-113e79bff069","publisherId":"bae08b87-578e-41ec-ab1c-0b036e7add88","publisherDisplayName":"Microsoft","targetPlatform":"undefined","updated":false,"private":false,"isPreReleaseVersion":false,"hasPreReleaseVersion":false}},{"identifier":{"id":"vscjava.vscode-gradle","uuid":"a226f06e-9b5e-493b-b92a-553d3572f969"},"version":"3.16.4","location":{"$mid":1,"path":"/home/mewer/.vscode/extensions/vscjava.vscode-gradle-3.16.4","scheme":"file"},"relativeLocation":"vscjava.vscode-gradle-3.16.4","metadata":{"installedTimestamp":1747852561741,"pinned":false,"source":"gallery","id":"a226f06e-9b5e-493b-b92a-553d3572f969","publisherId":"bae08b87-578e-41ec-ab1c-0b036e7add88","publisherDisplayName":"Microsoft","targetPlatform":"undefined","updated":false,"private":false,"isPreReleaseVersion":false,"hasPreReleaseVersion":false}},{"identifier":{"id":"vscjava.vscode-java-pack","uuid":"96f11e1f-1a46-4592-b084-f025b2c2a81f"},"version":"0.29.2","location":{"$mid":1,"path":"/home/mewer/.vscode/extensions/vscjava.vscode-java-pack-0.29.2","scheme":"file"},"relativeLocation":"vscjava.vscode-java-pack-0.29.2","metadata":{"isApplicationScoped":false,"isMachineScoped":false,"isBuiltin":false,"installedTimestamp":1749062635381,"pinned":false,"source":"gallery","id":"96f11e1f-1a46-4592-b084-f025b2c2a81f","publisherId":"bae08b87-578e-41ec-ab1c-0b036e7add88","publisherDisplayName":"Microsoft","targetPlatform":"undefined","updated":true,"private":false,"isPreReleaseVersion":false,"hasPreReleaseVersion":false,"preRelease":false}},{"identifier":{"id":"dbaeumer.vscode-eslint","uuid":"583b2b34-2c1e-4634-8c0b-0b82e283ea3a"},"version":"3.0.16","location":{"$mid":1,"path":"/home/mewer/.vscode/extensions/dbaeumer.vscode-eslint-3.0.16","scheme":"file"},"relativeLocation":"dbaeumer.vscode-eslint-3.0.16","metadata":{"isApplicationScoped":false,"isMachineScoped":false,"isBuiltin":false,"installedTimestamp":1755803243470,"pinned":false,"source":"gallery","id":"583b2b34-2c1e-4634-8c0b-0b82e283ea3a","publisherId":"29859a75-d81b-4f0e-8578-2c80ecee6f99","publisherDisplayName":"Microsoft","targetPlatform":"undefined","updated":true,"private":false,"isPreReleaseVersion":false,"hasPreReleaseVersion":false,"preRelease":false}},{"identifier":{"id":"humao.rest-client"},"version":"0.25.1","location":{"$mid":1,"fsPath":"/home/mewer/.vscode/extensions/humao.rest-client-0.25.1","external":"file:///home/mewer/.vscode/extensions/humao.rest-client-0.25.1","path":"/home/mewer/.vscode/extensions/humao.rest-client-0.25.1","scheme":"file"},"relativeLocation":"humao.rest-client-0.25.1","metadata":{"installedTimestamp":1755803285697,"pinned":false,"source":"gallery","id":"dda49fd5-1f3b-4d25-bf61-4fc41905ede5","publisherId":"aa260071-fe15-4a92-8990-7b8753d9cbc7","publisherDisplayName":"Huachao Mao","targetPlatform":"undefined","updated":false,"private":false,"isPreReleaseVersion":false,"hasPreReleaseVersion":false}}]
+[
+  {
+    "identifier": {
+      "id": "redhat.java",
+      "uuid": "198a707e-28af-4e84-8610-6e2f628dd12d"
+    },
+    "version": "1.42.0",
+    "location": {
+      "$mid": 1,
+      "path": "/home/mewer/.vscode/extensions/redhat.java-1.42.0-linux-x64",
+      "scheme": "file"
+    },
+    "relativeLocation": "redhat.java-1.42.0-linux-x64",
+    "metadata": {
+      "installedTimestamp": 1747852202369,
+      "pinned": false,
+      "source": "gallery",
+      "id": "198a707e-28af-4e84-8610-6e2f628dd12d",
+      "publisherId": "eed56242-9699-4317-8bc7-e9f4b9bdd3ff",
+      "publisherDisplayName": "Red Hat",
+      "targetPlatform": "linux-x64",
+      "updated": false,
+      "private": false,
+      "isPreReleaseVersion": false,
+      "hasPreReleaseVersion": false
+    }
+  },
+  {
+    "identifier": {
+      "id": "vscjava.vscode-maven",
+      "uuid": "b0f06c6b-24fb-4d7b-bd79-bc5e2fa17312"
+    },
+    "version": "0.44.0",
+    "location": {
+      "$mid": 1,
+      "path": "/home/mewer/.vscode/extensions/vscjava.vscode-maven-0.44.0",
+      "scheme": "file"
+    },
+    "relativeLocation": "vscjava.vscode-maven-0.44.0",
+    "metadata": {
+      "installedTimestamp": 1747852556311,
+      "pinned": false,
+      "source": "gallery",
+      "id": "b0f06c6b-24fb-4d7b-bd79-bc5e2fa17312",
+      "publisherId": "bae08b87-578e-41ec-ab1c-0b036e7add88",
+      "publisherDisplayName": "Microsoft",
+      "targetPlatform": "undefined",
+      "updated": false,
+      "private": false,
+      "isPreReleaseVersion": false,
+      "hasPreReleaseVersion": false
+    }
+  },
+  {
+    "identifier": {
+      "id": "visualstudioexptteam.intellicode-api-usage-examples",
+      "uuid": "9fa2a00e-3bfa-4c2a-abc4-a865bb2b5cf3"
+    },
+    "version": "0.2.9",
+    "location": {
+      "$mid": 1,
+      "path": "/home/mewer/.vscode/extensions/visualstudioexptteam.intellicode-api-usage-examples-0.2.9",
+      "scheme": "file"
+    },
+    "relativeLocation": "visualstudioexptteam.intellicode-api-usage-examples-0.2.9",
+    "metadata": {
+      "installedTimestamp": 1747852561738,
+      "pinned": false,
+      "source": "gallery",
+      "id": "9fa2a00e-3bfa-4c2a-abc4-a865bb2b5cf3",
+      "publisherId": "e8db1608-52e8-4d8d-92a6-779c5db302a9",
+      "publisherDisplayName": "Microsoft",
+      "targetPlatform": "undefined",
+      "updated": false,
+      "private": false,
+      "isPreReleaseVersion": false,
+      "hasPreReleaseVersion": false
+    }
+  },
+  {
+    "identifier": {
+      "id": "visualstudioexptteam.vscodeintellicode",
+      "uuid": "876e8f93-74d0-4f4f-91b7-34a09f19f444"
+    },
+    "version": "1.3.2",
+    "location": {
+      "$mid": 1,
+      "path": "/home/mewer/.vscode/extensions/visualstudioexptteam.vscodeintellicode-1.3.2",
+      "scheme": "file"
+    },
+    "relativeLocation": "visualstudioexptteam.vscodeintellicode-1.3.2",
+    "metadata": {
+      "installedTimestamp": 1747852561738,
+      "pinned": false,
+      "source": "gallery",
+      "id": "876e8f93-74d0-4f4f-91b7-34a09f19f444",
+      "publisherId": "e8db1608-52e8-4d8d-92a6-779c5db302a9",
+      "publisherDisplayName": "Microsoft",
+      "targetPlatform": "undefined",
+      "updated": false,
+      "private": false,
+      "isPreReleaseVersion": false,
+      "hasPreReleaseVersion": false
+    }
+  },
+  {
+    "identifier": {
+      "id": "vscjava.vscode-java-test",
+      "uuid": "67c06b0d-1891-42ca-b2a8-113e79bff069"
+    },
+    "version": "0.43.1",
+    "location": {
+      "$mid": 1,
+      "path": "/home/mewer/.vscode/extensions/vscjava.vscode-java-test-0.43.1",
+      "scheme": "file"
+    },
+    "relativeLocation": "vscjava.vscode-java-test-0.43.1",
+    "metadata": {
+      "installedTimestamp": 1747852561739,
+      "pinned": false,
+      "source": "gallery",
+      "id": "67c06b0d-1891-42ca-b2a8-113e79bff069",
+      "publisherId": "bae08b87-578e-41ec-ab1c-0b036e7add88",
+      "publisherDisplayName": "Microsoft",
+      "targetPlatform": "undefined",
+      "updated": false,
+      "private": false,
+      "isPreReleaseVersion": false,
+      "hasPreReleaseVersion": false
+    }
+  },
+  {
+    "identifier": {
+      "id": "dbaeumer.vscode-eslint",
+      "uuid": "583b2b34-2c1e-4634-8c0b-0b82e283ea3a"
+    },
+    "version": "3.0.16",
+    "location": {
+      "$mid": 1,
+      "path": "/home/mewer/.vscode/extensions/dbaeumer.vscode-eslint-3.0.16",
+      "scheme": "file"
+    },
+    "relativeLocation": "dbaeumer.vscode-eslint-3.0.16",
+    "metadata": {
+      "isApplicationScoped": false,
+      "isMachineScoped": false,
+      "isBuiltin": false,
+      "installedTimestamp": 1755803243470,
+      "pinned": false,
+      "source": "gallery",
+      "id": "583b2b34-2c1e-4634-8c0b-0b82e283ea3a",
+      "publisherId": "29859a75-d81b-4f0e-8578-2c80ecee6f99",
+      "publisherDisplayName": "Microsoft",
+      "targetPlatform": "undefined",
+      "updated": true,
+      "private": false,
+      "isPreReleaseVersion": false,
+      "hasPreReleaseVersion": false,
+      "preRelease": false
+    }
+  },
+  {
+    "identifier": {
+      "id": "humao.rest-client",
+      "uuid": "dda49fd5-1f3b-4d25-bf61-4fc41905ede5"
+    },
+    "version": "0.25.1",
+    "location": {
+      "$mid": 1,
+      "path": "/home/mewer/.vscode/extensions/humao.rest-client-0.25.1",
+      "scheme": "file"
+    },
+    "relativeLocation": "humao.rest-client-0.25.1",
+    "metadata": {
+      "installedTimestamp": 1755803285697,
+      "pinned": false,
+      "source": "gallery",
+      "id": "dda49fd5-1f3b-4d25-bf61-4fc41905ede5",
+      "publisherId": "aa260071-fe15-4a92-8990-7b8753d9cbc7",
+      "publisherDisplayName": "Huachao Mao",
+      "targetPlatform": "undefined",
+      "updated": false,
+      "private": false,
+      "isPreReleaseVersion": false,
+      "hasPreReleaseVersion": false
+    }
+  },
+  {
+    "identifier": {
+      "id": "vscjava.vscode-gradle",
+      "uuid": "a226f06e-9b5e-493b-b92a-553d3572f969"
+    },
+    "version": "3.17.0",
+    "location": {
+      "$mid": 1,
+      "path": "/home/mewer/.vscode/extensions/vscjava.vscode-gradle-3.17.0",
+      "scheme": "file"
+    },
+    "relativeLocation": "vscjava.vscode-gradle-3.17.0",
+    "metadata": {
+      "isApplicationScoped": false,
+      "isMachineScoped": false,
+      "isBuiltin": false,
+      "installedTimestamp": 1757353849546,
+      "pinned": false,
+      "source": "gallery",
+      "id": "a226f06e-9b5e-493b-b92a-553d3572f969",
+      "publisherId": "bae08b87-578e-41ec-ab1c-0b036e7add88",
+      "publisherDisplayName": "Microsoft",
+      "targetPlatform": "undefined",
+      "updated": true,
+      "private": false,
+      "isPreReleaseVersion": false,
+      "hasPreReleaseVersion": false,
+      "preRelease": false
+    }
+  },
+  {
+    "identifier": {
+      "id": "ms-python.vscode-python-envs",
+      "uuid": "b41d8e8a-b6d4-4202-8f07-7189bdda81be"
+    },
+    "version": "1.2.0",
+    "location": {
+      "$mid": 1,
+      "path": "/home/mewer/.vscode/extensions/ms-python.vscode-python-envs-1.2.0-linux-x64",
+      "scheme": "file"
+    },
+    "relativeLocation": "ms-python.vscode-python-envs-1.2.0-linux-x64",
+    "metadata": {
+      "installedTimestamp": 1758388823123,
+      "pinned": false,
+      "source": "gallery",
+      "id": "b41d8e8a-b6d4-4202-8f07-7189bdda81be",
+      "publisherId": "998b010b-e2af-44a5-a6cd-0b5fd3b9b6f8",
+      "publisherDisplayName": "Microsoft",
+      "targetPlatform": "linux-x64",
+      "updated": false,
+      "private": false,
+      "isPreReleaseVersion": false,
+      "hasPreReleaseVersion": false
+    }
+  },
+  {
+    "identifier": {
+      "id": "ms-python.vscode-pylance",
+      "uuid": "364d2426-116a-433a-a5d8-a5098dc3afbd"
+    },
+    "version": "2025.6.2",
+    "location": {
+      "$mid": 1,
+      "path": "/home/mewer/.vscode/extensions/ms-python.vscode-pylance-2025.6.2",
+      "scheme": "file"
+    },
+    "relativeLocation": "ms-python.vscode-pylance-2025.6.2",
+    "metadata": {
+      "installedTimestamp": 1758388823119,
+      "pinned": false,
+      "source": "gallery",
+      "id": "364d2426-116a-433a-a5d8-a5098dc3afbd",
+      "publisherId": "998b010b-e2af-44a5-a6cd-0b5fd3b9b6f8",
+      "publisherDisplayName": "Microsoft",
+      "targetPlatform": "undefined",
+      "updated": false,
+      "private": false,
+      "isPreReleaseVersion": false,
+      "hasPreReleaseVersion": false
+    }
+  },
+  {
+    "identifier": {
+      "id": "ms-python.vscode-python-envs",
+      "uuid": "b41d8e8a-b6d4-4202-8f07-7189bdda81be"
+    },
+    "version": "1.8.0",
+    "location": {
+      "$mid": 1,
+      "path": "/home/mewer/.vscode/extensions/ms-python.vscode-python-envs-1.8.0-linux-x64",
+      "scheme": "file"
+    },
+    "relativeLocation": "ms-python.vscode-python-envs-1.8.0-linux-x64",
+    "metadata": {
+      "isApplicationScoped": false,
+      "isMachineScoped": false,
+      "isBuiltin": false,
+      "installedTimestamp": 1759643438870,
+      "pinned": false,
+      "source": "gallery",
+      "id": "b41d8e8a-b6d4-4202-8f07-7189bdda81be",
+      "publisherId": "998b010b-e2af-44a5-a6cd-0b5fd3b9b6f8",
+      "publisherDisplayName": "Microsoft",
+      "targetPlatform": "linux-x64",
+      "updated": true,
+      "private": false,
+      "isPreReleaseVersion": false,
+      "hasPreReleaseVersion": false,
+      "preRelease": false
+    }
+  },
+  {
+    "identifier": {
+      "id": "ms-python.vscode-pylance",
+      "uuid": "364d2426-116a-433a-a5d8-a5098dc3afbd"
+    },
+    "version": "2025.8.2",
+    "location": {
+      "$mid": 1,
+      "path": "/home/mewer/.vscode/extensions/ms-python.vscode-pylance-2025.8.2",
+      "scheme": "file"
+    },
+    "relativeLocation": "ms-python.vscode-pylance-2025.8.2",
+    "metadata": {
+      "isApplicationScoped": false,
+      "isMachineScoped": false,
+      "isBuiltin": false,
+      "installedTimestamp": 1759042518215,
+      "pinned": false,
+      "source": "gallery",
+      "id": "364d2426-116a-433a-a5d8-a5098dc3afbd",
+      "publisherId": "998b010b-e2af-44a5-a6cd-0b5fd3b9b6f8",
+      "publisherDisplayName": "Microsoft",
+      "targetPlatform": "undefined",
+      "updated": true,
+      "private": false,
+      "isPreReleaseVersion": false,
+      "hasPreReleaseVersion": false,
+      "preRelease": false
+    }
+  },
+  {
+    "identifier": {
+      "id": "ms-python.vscode-pylance",
+      "uuid": "364d2426-116a-433a-a5d8-a5098dc3afbd"
+    },
+    "version": "2025.8.3",
+    "location": {
+      "$mid": 1,
+      "path": "/home/mewer/.vscode/extensions/ms-python.vscode-pylance-2025.8.3",
+      "scheme": "file"
+    },
+    "relativeLocation": "ms-python.vscode-pylance-2025.8.3",
+    "metadata": {
+      "isApplicationScoped": false,
+      "isMachineScoped": false,
+      "isBuiltin": false,
+      "installedTimestamp": 1760290824713,
+      "pinned": false,
+      "source": "gallery",
+      "id": "364d2426-116a-433a-a5d8-a5098dc3afbd",
+      "publisherId": "998b010b-e2af-44a5-a6cd-0b5fd3b9b6f8",
+      "publisherDisplayName": "Microsoft",
+      "targetPlatform": "undefined",
+      "updated": true,
+      "private": false,
+      "isPreReleaseVersion": false,
+      "hasPreReleaseVersion": false,
+      "preRelease": false
+    }
+  },
+  {
+    "identifier": {
+      "id": "vscjava.vscode-java-dependency",
+      "uuid": "7865e561-1c83-410e-9b99-aabada597a7e"
+    },
+    "version": "0.26.1",
+    "location": {
+      "$mid": 1,
+      "path": "/home/mewer/.vscode/extensions/vscjava.vscode-java-dependency-0.26.1",
+      "scheme": "file"
+    },
+    "relativeLocation": "vscjava.vscode-java-dependency-0.26.1",
+    "metadata": {
+      "isApplicationScoped": false,
+      "isMachineScoped": false,
+      "isBuiltin": false,
+      "installedTimestamp": 1760168583809,
+      "pinned": false,
+      "source": "gallery",
+      "id": "7865e561-1c83-410e-9b99-aabada597a7e",
+      "publisherId": "bae08b87-578e-41ec-ab1c-0b036e7add88",
+      "publisherDisplayName": "Microsoft",
+      "targetPlatform": "undefined",
+      "updated": true,
+      "private": false,
+      "isPreReleaseVersion": false,
+      "hasPreReleaseVersion": false,
+      "preRelease": false
+    }
+  },
+  {
+    "identifier": {
+      "id": "vscjava.vscode-java-pack",
+      "uuid": "96f11e1f-1a46-4592-b084-f025b2c2a81f"
+    },
+    "version": "0.30.3",
+    "location": {
+      "$mid": 1,
+      "path": "/home/mewer/.vscode/extensions/vscjava.vscode-java-pack-0.30.3",
+      "scheme": "file"
+    },
+    "relativeLocation": "vscjava.vscode-java-pack-0.30.3",
+    "metadata": {
+      "isApplicationScoped": false,
+      "isMachineScoped": false,
+      "isBuiltin": false,
+      "installedTimestamp": 1760168586845,
+      "pinned": false,
+      "source": "gallery",
+      "id": "96f11e1f-1a46-4592-b084-f025b2c2a81f",
+      "publisherId": "bae08b87-578e-41ec-ab1c-0b036e7add88",
+      "publisherDisplayName": "Microsoft",
+      "targetPlatform": "undefined",
+      "updated": true,
+      "private": false,
+      "isPreReleaseVersion": false,
+      "hasPreReleaseVersion": false,
+      "preRelease": false
+    }
+  },
+  {
+    "identifier": {
+      "id": "ms-python.debugpy",
+      "uuid": "4bd5d2c9-9d65-401a-b0b2-7498d9f17615"
+    },
+    "version": "2025.14.0",
+    "location": {
+      "$mid": 1,
+      "path": "/home/mewer/.vscode/extensions/ms-python.debugpy-2025.14.0-linux-x64",
+      "scheme": "file"
+    },
+    "relativeLocation": "ms-python.debugpy-2025.14.0-linux-x64",
+    "metadata": {
+      "isApplicationScoped": false,
+      "isMachineScoped": false,
+      "isBuiltin": false,
+      "installedTimestamp": 1760168596978,
+      "pinned": false,
+      "source": "gallery",
+      "id": "4bd5d2c9-9d65-401a-b0b2-7498d9f17615",
+      "publisherId": "998b010b-e2af-44a5-a6cd-0b5fd3b9b6f8",
+      "publisherDisplayName": "Microsoft",
+      "targetPlatform": "linux-x64",
+      "updated": true,
+      "private": false,
+      "isPreReleaseVersion": false,
+      "hasPreReleaseVersion": false,
+      "preRelease": false
+    }
+  },
+  {
+    "identifier": {
+      "id": "ms-python.python",
+      "uuid": "f1f59ae4-9318-4f3c-a9b5-81b2eaa5f8a5"
+    },
+    "version": "2025.16.0",
+    "location": {
+      "$mid": 1,
+      "path": "/home/mewer/.vscode/extensions/ms-python.python-2025.16.0-linux-x64",
+      "scheme": "file"
+    },
+    "relativeLocation": "ms-python.python-2025.16.0-linux-x64",
+    "metadata": {
+      "isApplicationScoped": false,
+      "isMachineScoped": false,
+      "isBuiltin": false,
+      "installedTimestamp": 1760168596627,
+      "pinned": false,
+      "source": "gallery",
+      "id": "f1f59ae4-9318-4f3c-a9b5-81b2eaa5f8a5",
+      "publisherId": "998b010b-e2af-44a5-a6cd-0b5fd3b9b6f8",
+      "publisherDisplayName": "Microsoft",
+      "targetPlatform": "linux-x64",
+      "updated": true,
+      "private": false,
+      "isPreReleaseVersion": false,
+      "hasPreReleaseVersion": false,
+      "preRelease": false
+    }
+  },
+  {
+    "identifier": {
+      "id": "ms-python.vscode-python-envs",
+      "uuid": "b41d8e8a-b6d4-4202-8f07-7189bdda81be"
+    },
+    "version": "1.10.0",
+    "location": {
+      "$mid": 1,
+      "path": "/home/mewer/.vscode/extensions/ms-python.vscode-python-envs-1.10.0-linux-x64",
+      "scheme": "file"
+    },
+    "relativeLocation": "ms-python.vscode-python-envs-1.10.0-linux-x64",
+    "metadata": {
+      "isApplicationScoped": false,
+      "isMachineScoped": false,
+      "isBuiltin": false,
+      "installedTimestamp": 1760290824711,
+      "pinned": false,
+      "source": "gallery",
+      "id": "b41d8e8a-b6d4-4202-8f07-7189bdda81be",
+      "publisherId": "998b010b-e2af-44a5-a6cd-0b5fd3b9b6f8",
+      "publisherDisplayName": "Microsoft",
+      "targetPlatform": "linux-x64",
+      "updated": true,
+      "private": false,
+      "isPreReleaseVersion": false,
+      "hasPreReleaseVersion": false,
+      "preRelease": false
+    }
+  }
+]

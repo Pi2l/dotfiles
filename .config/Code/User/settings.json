@@ -113,5 +113,15 @@
     "javascript:S1440": {
       "level": "on"
     }
-  }
+  },
+  "github.copilot.nextEditSuggestions.enabled": true,
+  "github.copilot.enable": {
+    "*": false,
+    "plaintext": false,
+    "markdown": false,
+    "scminput": false,
+    "go": false
+  },
+  "editor.fontFamily": "'JetBrains Mono'",
+  "editor.fontLigatures": true,
 }
