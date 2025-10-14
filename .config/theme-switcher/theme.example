@@ -1,0 +1,20 @@
+# Theme Switcher Configuration
+# This file contains theme-specific settings including color temperature for night shift
+
+[dark-theme]
+gtk-theme='Catppuccin-Mocha-Standard-Blue-Dark'
+gtk-icon='Papirus-Dark'
+# Color temperature for night shift (in Kelvin, 1000-6500)
+sunset-temperature=3000
+# Optional: specify custom time range instead of using sunrise/sunset
+# from-time=20:00
+# till-time=06:00
+
+[light-theme]
+gtk-theme='Catppuccin-Latte-Standard-Blue-Light'
+gtk-icon='Papirus-Light'
+# Color temperature for night shift (in Kelvin, 1000-6500)
+sunset-temperature=4500
+# Optional: specify custom time range instead of using sunrise/sunset
+# from-time=18:00
+# till-time=08:00

@@ -1,0 +1,13 @@
+[Unit]
+Description=Night Shift Color Temperature Service
+After=graphical-session.target
+
+[Service]
+Type=oneshot
+ExecStart=%h/.dotfiles/.config/scripts/night-shift/activate-night-shift.sh update
+Environment=DISPLAY=:0
+Environment=WAYLAND_DISPLAY=wayland-1
+Environment=XDG_RUNTIME_DIR=%t
+
+[Install]
+WantedBy=default.target

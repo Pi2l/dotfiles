@@ -1,0 +1,11 @@
+[Unit]
+Description=Night Shift Color Temperature Timer
+Requires=night-shift.service
+
+[Timer]
+OnCalendar=*:0/15
+Persistent=true
+AccuracySec=1m
+
+[Install]
+WantedBy=timers.target

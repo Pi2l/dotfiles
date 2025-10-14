@@ -1,0 +1,16 @@
+[Unit]
+Description=Night Shift Daemon - Continuous Color Temperature Management
+After=graphical-session.target
+Wants=graphical-session.target
+
+[Service]
+Type=simple
+ExecStart=%h/.dotfiles/.config/scripts/night-shift/night-shift-daemon.sh
+Restart=on-failure
+RestartSec=5
+Environment=DISPLAY=:0
+Environment=WAYLAND_DISPLAY=wayland-1
+Environment=XDG_RUNTIME_DIR=%t
+
+[Install]
+WantedBy=default.target
