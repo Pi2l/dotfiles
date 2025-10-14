@@ -147,23 +147,50 @@ source /path/to/activate-night-shift.sh
 update_night_shift "$NEXT_MODE"
 ```
 
-### With Systemd
-Create a service to run periodically:
+### With Systemd (Automatic Updates)
 
-```ini
-[Unit]
-Description=Night Shift Update
+The scripts include pre-configured systemd user services for automatic operation:
 
-[Service]
-Type=oneshot
-ExecStart=/path/to/activate-night-shift.sh update
+#### Timer Service (Recommended)
+Updates every 15 minutes with minimal resource usage:
+```bash
+# Enable timer-based updates
+./manage-services.sh enable-timer
 
-[Timer]
-OnCalendar=*:0/30  # Every 30 minutes
+# Check status
+./manage-services.sh status
 
-[Install]
-WantedBy=timers.target
+# View logs
+journalctl --user -u night-shift.service -f
 ```
+
+#### Daemon Service (Advanced)
+Continuous monitoring with instant theme change detection:
+```bash
+# Enable daemon-based updates
+./manage-services.sh enable-daemon
+
+# Check status and logs
+./manage-services.sh logs daemon
+```
+
+#### Service Management
+```bash
+# Show current status
+./manage-services.sh status
+
+# Disable all automatic services
+./manage-services.sh disable
+
+# Restart active service
+./manage-services.sh restart
+```
+
+The systemd services are configured to:
+- Keep `hyprsunset` running after service completion (`RemainAfterExit=yes`)
+- Automatically restart on failure
+- Use proper session detachment (`setsid`) to prevent process cleanup
+- Update temperature every 15 minutes (timer) or continuously (daemon)
 
 ### Manual Usage
 ```bash

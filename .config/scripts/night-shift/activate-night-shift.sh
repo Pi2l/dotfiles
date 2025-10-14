@@ -91,14 +91,17 @@ apply_temperature() {
         return 0
     fi
     
-    # Apply temperature filter
-    nohup hyprsunset -t "$temp" >/dev/null 2>&1 &
-    local pid=$!
+    # Apply temperature filter - use setsid to fully detach from the session
+    setsid hyprsunset -t "$temp" >/dev/null 2>&1 &
     
-    # Check if it started successfully
+    # Give it a moment to start
     sleep 0.5
-    if kill -0 "$pid" 2>/dev/null; then
-        log_info "Successfully started hyprsunset (PID: $pid) with temperature ${temp}K"
+    
+    # Check if hyprsunset is now running
+    if pgrep hyprsunset >/dev/null 2>&1; then
+        local new_pid
+        new_pid=$(pgrep hyprsunset)
+        log_info "Successfully started hyprsunset (PID: $new_pid) with temperature ${temp}K"
         return 0
     else
         log_error "Failed to start hyprsunset"
