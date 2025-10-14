@@ -33,6 +33,22 @@ volume_up() {
   fi
 }
 
+volume_up_pipewire() {
+  local step=$1
+
+  if "$(wpctl get-volume @DEFAULT_SINK@)" | grep 'MUTED'; then
+    wpctl set-mute @DEFAULT_SINK@ 0
+  fi
+
+  local CURRENT_VOLUME=$(wpctl get-volume "$DEFAULT_SINK" | awk '{print $2}')
+  local step_float=$(awk -v s="$step" 'BEGIN { printf "%.4f", s / 100 }')
+
+  # Only increase if below 1.0 (100%)
+  if awk -v vol="$CURRENT_VOLUME" 'BEGIN { exit !(vol < 1.0) }'; then
+    wpctl set-volume "$DEFAULT_SINK" "+$step_float"
+  fi
+}
+
 # Function to decrease volume and toggle mute if volume reaches 0%
 volume_down() {
   local step=$1
@@ -103,6 +119,7 @@ microphone_volume_down() {
 case "$1" in
 up)
   volume_up "$step"
+  # volume_up_pipewire "$step"
   $SCRIPTS_DIR/notification/notify-user.sh volume
   ;;
 down)
