@@ -1,1 +1,46 @@
-/home/mewer/.config/waybar/config
+[
+  {
+  "include": [
+    "$HOME/.config/waybar/Modules",
+    "$HOME/.config/waybar/ModulesWorkspaces",
+    "$HOME/.config/waybar/ModulesCustom",
+    "$HOME/.config/waybar/ModulesGroups",
+    ],
+  "layer": "top",
+  "exclusive": true,
+  "passthrough": false,
+  "position": "top",
+  "spacing": 3,
+  // "margin-top": 4,
+  // "margin-right": 4,
+  // "margin-left": 4,
+  "fixed-center": true,
+  "ipc": true,
+
+  "modules-left": [
+    "custom/menu",
+    "custom/separator#line",
+    "group/motherboard",
+    "custom/separator#line",
+    "hyprland/workspaces#rw",
+    ],
+
+  "modules-center": [
+    "clock#6",
+    ], 
+
+  "modules-right": [
+    "custom/swaync",
+    "custom/separator#line",
+    "tray",
+    "network",
+    "bluetooth",
+    "group/laptop",
+    "pulseaudio#withmic_pipewire",
+    "pulseaudio#microphone_pipewire",
+    "hyprland/language",
+    "custom/separator#line",
+    "custom/power",
+    ],
+  }
+]

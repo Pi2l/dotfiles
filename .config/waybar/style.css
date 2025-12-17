@@ -1,1 +1,163 @@
-/home/mewer/.config/waybar/style.css
+@import "wallust/colors-waybar.css";
+@import "style/catppuccin-themes/mocha.css";
+
+* {
+  transition: none;
+  box-shadow: none;
+}
+
+window#waybar {
+	font-family: 'Adwaita Sans', 'Source Code Pro', sans-serif;
+	font-size: 1.2em;
+	font-weight: 400;
+  border-radius: 10px;
+  color: @foreground;
+  background: @background;
+}
+
+tooltip {
+  border-color: @background;
+  background-color: rgb(30, 30, 46);
+  color: @foreground;
+  border-radius: 7px;
+}
+
+#custom-light_dark, #custom-menu, #cpu {
+  margin: 0 4px;
+}
+
+#workspaces {
+  margin: 0 4px;
+  background-color: transparent;
+}
+
+#workspaces button {
+  margin: 4px 0;
+  padding: 0 4px;
+}
+
+#workspaces button.visible {
+  color: @base;
+  background-color: @lavender;
+}
+
+#workspaces button.active {
+  border-radius: 4px;
+}
+
+#workspaces button.urgent {
+  color: @red;
+}
+
+#tray,
+#backlight,
+#battery,
+#pulseaudio,
+#bluetooth,
+#network,
+#cpu, 
+#memory {
+  margin: 4px 4px 4px 4px;
+  border-radius: 4px;
+  color: @base;
+}
+
+#tray {
+  background-color: @blue;
+}
+
+#tray * {
+  padding: 0 5px;
+  border-left: 1px solid @color0;
+}
+
+#tray *:first-child {
+  border-left: none;
+}
+
+#backlight {
+  padding: 0 5px;
+  background-color: @text;
+}
+
+#pulseaudio {
+  background-color: @yellow;
+  padding: 0 5px;
+}
+
+#bluetooth {
+  background-color: @mauve;
+  padding: 0 5px;
+}
+
+#pulseaudio {
+  min-width: 20px;
+}
+
+#network {
+  background-color: @blue;
+  min-width: 20px;
+  padding: 0 5px 0 1px;
+}
+
+/* BATTERY */
+/* https://man.archlinux.org/man/waybar-battery.5.en */
+#battery {
+  /* background-color: @teal; */
+  padding: 0 5px;
+}
+
+#battery.charging:hover, #battery.discharging:hover {
+}
+#battery.full,
+#battery.good,
+#battery.normal-up,
+#battery.normal,
+#battery.normal-down {
+  color: @text;
+}
+#battery.discharging.warning-up {/* :not(.charging) ?*/
+  color: #f3f2c9;
+}
+#battery.discharging.warning {
+  color: #f7ca88;
+}
+#battery.discharging.warning-down {
+  color: #fea275;
+}
+#battery.discharging.critical {
+  color: #f65555;
+}
+
+#battery.full,
+#battery.good,
+#battery.normal-up,
+#battery.normal,
+#battery.normal-down,
+#battery.warning-up,
+#battery.discharging.warning-up,
+#battery.warning,
+#battery.warning-down,
+#battery.discharging.critical {
+  background-color: @surface0;
+}
+
+#battery.charging {
+  color: @green;
+}
+#custom-light_dark, #custom-menu, #custom-cpu {
+  margin: 5px;
+}
+#custom-power {
+  margin-right: 10px;
+}
+
+#memory {
+  padding: 0 3px;
+  background-color: @green;
+}
+
+#custom-fan {
+
+}
+
