@@ -10,7 +10,7 @@ if [[ -f "$FAN_STATUS_FILE" ]]; then
   speed=$(grep "speed:" "$FAN_STATUS_FILE" | awk '{print $2}')
   level=$(grep "level:" "$FAN_STATUS_FILE" | awk '{print $2}')
 
-  icon=""
+  icon="|"
 
   # Output for Waybar
   echo "{\"text\": \"$icon $speed RPM\", \"tooltip\": \"Status: $status\nSpeed: $speed\nLevel: $level\", \"class\": \"$status\", \"icon\": \"$icon\"}"
