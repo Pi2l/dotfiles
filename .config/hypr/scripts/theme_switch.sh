@@ -36,7 +36,7 @@ notify_user() {
   notify-send -u low -t 3000 "Themes in $NEXT_MODE mode" "GTK Theme: $selected_theme\nGTK Icon: $selected_icon"
 }
 
-WALLUST_CONFIG="$HOME/.dotfiles/.config/wallust/wallust.toml"
+WALLUST_CONFIG="$HOME/.config/wallust/wallust.toml"
 PALLETE_DARK="dark16"
 PALLETE_LIGHT="light16"
 # Use sed to replace the palette setting in the wallust config file
