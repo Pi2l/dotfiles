@@ -5,8 +5,8 @@ After=graphical-session.target
 [Service]
 Type=oneshot
 RemainAfterExit=yes
-ExecStart=%h/.dotfiles/.config/scripts/night-shift/activate-night-shift.sh update
-ExecStop=%h/.dotfiles/.config/scripts/night-shift/activate-night-shift.sh disable
+ExecStart=%h/.config/scripts/night-shift/activate-night-shift.sh update
+ExecStop=%h/.config/scripts/night-shift/activate-night-shift.sh disable
 Environment=DISPLAY=:0
 Environment=WAYLAND_DISPLAY=wayland-1
 Environment=XDG_RUNTIME_DIR=%t
