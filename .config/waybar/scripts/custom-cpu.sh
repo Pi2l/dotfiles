@@ -69,16 +69,18 @@ if [[ -f "$CPU_STATUS_FILE" ]]; then
     pu_temperature_icon="󱩘"
   fi
 
+  cpu_power=$(~/.local/bin/get-cpu-energy 2>/dev/null | awk '{printf "%.2f", $1}')
+
   # TODO: add function that composes text value according to input argument. Argument is passed based on click:
   # left click -> show CPU;
   # right click -> GPU;
   # middle click -> SSD;
 
   celsius="℃"
-  wat="W"
+  watt="W"
   tooltip_cpu_freqs=$(get_freq_json_per_core "${cores_freq[@]}")
   # Output for Waybar. Text: cpu icon cpu_temperature @ cpu_freq
-  echo "{\"text\": \"$cpu_temperature_icon $cpu_temperature$celsius @$average\", \"tooltip\": \"$tooltip_cpu_freqs\nCPU: $cpu_temperature$celsius\nGPU: $gpu_temperature$celsius\nSSD: $ssd_temperature$celsius\nPower: $pu_temperature$wat\", \"class\": \"$status\", \"icon\": \"$cpu_temperature\"}"
+  echo "{\"text\": \"$cpu_temperature_icon $cpu_temperature$celsius @$average [$cpu_power$watt]\", \"tooltip\": \"$tooltip_cpu_freqs\nCPU: $cpu_temperature$celsius\nGPU: $gpu_temperature$celsius\nSSD: $ssd_temperature$celsius\nPower: $pu_temperature$watt\nCPU power: $cpu_power$watt\", \"class\": \"$status\", \"icon\": \"$cpu_temperature\"}"
 else
   echo "{\"text\": \"Error\", \"tooltip\": \"Fan status file not found\", \"class\": \"error\", \"icon\": \"❗\"}"
 fi

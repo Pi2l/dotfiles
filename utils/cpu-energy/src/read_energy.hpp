@@ -1,0 +1,2 @@
+
+float get_cpuConsumptionWatts();
