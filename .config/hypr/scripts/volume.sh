@@ -1,6 +1,7 @@
 #!/bin/bash
 
 SCRIPTS_DIR="${XDG_CONFIG_HOME:-$HOME/.config}/scripts/"
+HYPR_SCRIPTS_DIR="${XDG_CONFIG_HOME:-$HOME/.config}/hypr/scripts/"
 # Get the current sink (output device)
 DEFAULT_SINK=$(pactl get-default-sink)
 
@@ -23,13 +24,19 @@ fi
 # Function to increase volume, capped at 100%
 volume_up() {
   local step=$1
+  $HYPR_SCRIPTS_DIR/shared/shared/osd.sh has-swayosd
 
-  if [ "$(pactl get-sink-mute @DEFAULT_SINK@)" = "Mute: yes" ]; then
-    pactl set-sink-mute @DEFAULT_SINK@ 0
-  fi
+  if echo $?; then
+    swayosd-client --output-volume "$step"
+  else
+    if [ "$(pactl get-sink-mute @DEFAULT_SINK@)" = "Mute: yes" ]; then
+      pactl set-sink-mute @DEFAULT_SINK@ 0
+    fi
 
-  if ((CURRENT_VOLUME < 100)); then
-    pactl set-sink-volume "$DEFAULT_SINK" +"$step"%
+    if ((CURRENT_VOLUME < 100)); then
+      pactl set-sink-volume "$DEFAULT_SINK" +"$step"%
+    fi
+    $SCRIPTS_DIR/notification/notify-user.sh volume
   fi
 }
 
@@ -52,66 +59,115 @@ volume_up_pipewire() {
 # Function to decrease volume and toggle mute if volume reaches 0%
 volume_down() {
   local step=$1
-  if ((CURRENT_VOLUME > 0)); then
-    pactl set-sink-volume "$DEFAULT_SINK" -"$step"%
-    # Refresh volume after change
-    CURRENT_VOLUME=$(pactl get-sink-volume "$DEFAULT_SINK" | grep -oP '\d+%' | head -1 | tr -d '%')
-  fi
+  $HYPR_SCRIPTS_DIR/shared/shared/osd.sh has-swayosd
 
-  if [[ $CURRENT_VOLUME -eq 0 && "$(pactl get-sink-mute @DEFAULT_SINK@)" = "Mute: no" ]]; then
-    # pactl set-sink-mute "$DEFAULT_SINK" toggle
-    toggle_volume
+  if echo $?; then
+    swayosd-client --output-volume "-$step"
+  else
+    pactl set-sink-volume "$DEFAULT_SINK" -"$step"%
+    if ((CURRENT_VOLUME > 0)); then
+      # Refresh volume after change
+      CURRENT_VOLUME=$(pactl get-sink-volume "$DEFAULT_SINK" | grep -oP '\d+%' | head -1 | tr -d '%')
+    fi
+
+    if [[ $CURRENT_VOLUME -eq 0 && "$(pactl get-sink-mute @DEFAULT_SINK@)" = "Mute: no" ]]; then
+      # pactl set-sink-mute "$DEFAULT_SINK" toggle
+      toggle_volume
+    fi
+    $SCRIPTS_DIR/notification/notify-user.sh volume
   fi
 }
 
 toggle_volume() {
-  pactl set-sink-mute @DEFAULT_SINK@ toggle
+  $HYPR_SCRIPTS_DIR/shared/shared/osd.sh has-swayosd
+
+  if echo $?; then
+    swayosd-client --output-volume mute-toggle
+  else
+    pactl set-sink-mute @DEFAULT_SINK@ toggle
+    $SCRIPTS_DIR/notification/notify-user.sh volume
+  fi
 }
 
 toggle_microphone() {
-  pactl set-source-mute @DEFAULT_SOURCE@ toggle
+  $HYPR_SCRIPTS_DIR/shared/shared/osd.sh has-swayosd
+
+  if echo $?; then
+    swayosd-client --input-volume mute-toggle
+  else
+    pactl set-source-mute @DEFAULT_SOURCE@ toggle
+    $SCRIPTS_DIR/notification/notify-user.sh microphone
+  fi
 }
 
 mute() {
-  pactl set-sink-mute @DEFAULT_SINK@ 1
+  $HYPR_SCRIPTS_DIR/shared/shared/osd.sh has-swayosd
+
+  if echo $?; then
+    swayosd-client --input-volume mute-toggle
+  else
+    pactl set-sink-mute @DEFAULT_SINK@ 1
+    $SCRIPTS_DIR/notification/notify-user.sh volume
+  fi
 }
 
 unmute() {
-  pactl set-sink-mute @DEFAULT_SINK@ 0
+  $HYPR_SCRIPTS_DIR/shared/shared/osd.sh has-swayosd
+
+  if echo $?; then
+    swayosd-client --input-volume mute-toggle
+  else
+    pactl set-sink-mute @DEFAULT_SINK@ 0
+    $SCRIPTS_DIR/notification/notify-user.sh volume
+  fi
 }
 
 microphone_volume_up() {
   local step=$1
-  DEFAULT_SOURCE=$(pactl info | grep 'Default Source' | awk '{print $3}')
-  CURRENT_MIC_VOLUME=$(pactl get-source-volume @DEFAULT_SOURCE@ | grep -oP '\d+%' | head -1 | tr -d '%')
+  $HYPR_SCRIPTS_DIR/shared/shared/osd.sh has-swayosd
 
-  if [ "$(pactl get-source-mute @DEFAULT_SOURCE@)" = "Mute: yes" ]; then
-    # pactl set-source-mute @DEFAULT_SOURCE@ 0
-    return
-  fi
+  if echo $?; then
+    swayosd-client --input-volume "$step"
+  else
+    DEFAULT_SOURCE=$(pactl info | grep 'Default Source' | awk '{print $3}')
+    CURRENT_MIC_VOLUME=$(pactl get-source-volume @DEFAULT_SOURCE@ | grep -oP '\d+%' | head -1 | tr -d '%')
 
-  if ((CURRENT_MIC_VOLUME < 100)); then
-    pactl set-source-volume "$DEFAULT_SOURCE" +"$step"%
+    if [ "$(pactl get-source-mute @DEFAULT_SOURCE@)" = "Mute: yes" ]; then
+      # pactl set-source-mute @DEFAULT_SOURCE@ 0
+      return
+    fi
+
+    if ((CURRENT_MIC_VOLUME < 100)); then
+      pactl set-source-volume "$DEFAULT_SOURCE" +"$step"%
+    fi
+    $SCRIPTS_DIR/notification/notify-user.sh microphone
   fi
 }
 
 microphone_volume_down() {
   local step=$1
-  DEFAULT_SOURCE=$(pactl info | grep 'Default Source' | awk '{print $3}')
-  CURRENT_MIC_VOLUME=$(pactl get-source-volume @DEFAULT_SOURCE@ | grep -oP '\d+%' | head -1 | tr -d '%')
+  $HYPR_SCRIPTS_DIR/shared/shared/osd.sh has-swayosd
 
-  if [ "$(pactl get-source-mute @DEFAULT_SOURCE@)" = "Mute: yes" ]; then
-    return
-  fi
-
-  if ((CURRENT_MIC_VOLUME > 0)); then
-    pactl set-source-volume "$DEFAULT_SOURCE" -"$step"%
-    # Refresh volume after change
+  if echo $?; then
+    swayosd-client --input-volume "-$step"
+  else
+    DEFAULT_SOURCE=$(pactl info | grep 'Default Source' | awk '{print $3}')
     CURRENT_MIC_VOLUME=$(pactl get-source-volume @DEFAULT_SOURCE@ | grep -oP '\d+%' | head -1 | tr -d '%')
-  fi
 
-  if [[ $CURRENT_MIC_VOLUME -eq 0 && "$(pactl get-source-mute @DEFAULT_SOURCE@)" = "Mute: no" ]]; then
-    toggle_microphone
+    if [ "$(pactl get-source-mute @DEFAULT_SOURCE@)" = "Mute: yes" ]; then
+      return
+    fi
+
+    if ((CURRENT_MIC_VOLUME > 0)); then
+      pactl set-source-volume "$DEFAULT_SOURCE" -"$step"%
+      # Refresh volume after change
+      CURRENT_MIC_VOLUME=$(pactl get-source-volume @DEFAULT_SOURCE@ | grep -oP '\d+%' | head -1 | tr -d '%')
+    fi
+
+    if [[ $CURRENT_MIC_VOLUME -eq 0 && "$(pactl get-source-mute @DEFAULT_SOURCE@)" = "Mute: no" ]]; then
+      toggle_microphone
+    fi
+    $SCRIPTS_DIR/notification/notify-user.sh microphone
   fi
 
 }
@@ -119,36 +175,27 @@ microphone_volume_down() {
 case "$1" in
 up)
   volume_up "$step"
-  # volume_up_pipewire "$step"
-  $SCRIPTS_DIR/notification/notify-user.sh volume
   ;;
 down)
   volume_down "$step"
-  $SCRIPTS_DIR/notification/notify-user.sh volume
   ;;
 toggle-volume)
   toggle_volume
-  $SCRIPTS_DIR/notification/notify-user.sh volume
   ;;
 toggle-microphone)
   toggle_microphone
-  $SCRIPTS_DIR/notification/notify-user.sh microphone
   ;;
 mute)
   mute
-  $SCRIPTS_DIR/notification/notify-user.sh volume
   ;;
 unmute)
   unmute
-  $SCRIPTS_DIR/notification/notify-user.sh volume
   ;;
 mic-up)
   microphone_volume_up "$step"
-  $SCRIPTS_DIR/notification/notify-user.sh microphone
   ;;
 mic-down)
   microphone_volume_down "$step"
-  $SCRIPTS_DIR/notification/notify-user.sh microphone
   ;;
 *)
   echo "Usage: $0 {(up|down [<step>])|toggle-volume|unmute|mute|toggle-microphone}"

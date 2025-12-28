@@ -1,15 +1,30 @@
 #!/bin/bash
 
 SCRIPTS_DIR="${XDG_CONFIG_HOME:-$HOME/.config}/scripts/"
+HYPR_SCRIPTS_DIR="${XDG_CONFIG_HOME:-$HOME/.config}/hypr/scripts"
 
 increase_brightness() {
   local step=$1
-  brightnessctl s "${step}%+"
+  $HYPR_SCRIPTS_DIR/shared/osd.sh has-swayosd
+
+  if echo $?; then
+    swayosd-client --brightness "+$step"
+  else
+    brightnessctl s "${step}%+"
+    $SCRIPTS_DIR/notification/notify-user.sh brightness
+  fi
 }
 
 decrease_brightness() {
   local step=$1
-  brightnessctl s "${step}%-"
+  $HYPR_SCRIPTS_DIR/shared/osd.sh has-swayosd
+
+  if echo $?; then
+    swayosd-client --brightness "-$step"
+  else
+    brightnessctl s "${step}%-"
+    $SCRIPTS_DIR/notification/notify-user.sh brightness
+  fi
 }
 
 command="$1"
@@ -28,11 +43,9 @@ fi
 case "$command" in
 increase)
   increase_brightness "$step"
-  $SCRIPTS_DIR/notification/notify-user.sh brightness
   ;;
 decrease)
   decrease_brightness "$step"
-  $SCRIPTS_DIR/notification/notify-user.sh brightness
   ;;
 *)
   echo "Usage: $0 {increase|decrease} <step>"

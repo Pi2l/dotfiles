@@ -1,4 +1,4 @@
-@define-color foreground {{foreground | darken(0.3)}};
+@define-color foreground {{foreground | lighten(0.3)}};
 @define-color background {{background | lighten(0.1) | saturate(0.1)}};
 @define-color cursor {{cursor}};
 

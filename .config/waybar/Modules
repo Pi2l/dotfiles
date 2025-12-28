@@ -53,8 +53,8 @@
 	"on-click-middle": "",
 	"on-click-right": "",
 	"on-update": "",
-	"on-scroll-up": "$HOME/.config/hypr/scripts/brightness.sh increase 1",
-	"on-scroll-down": "$HOME/.config/hypr/scripts/brightness.sh decrease 1",
+	"on-scroll-up": "$HOME/.config/hypr/scripts/brightness.sh increase 2",
+	"on-scroll-down": "$HOME/.config/hypr/scripts/brightness.sh decrease 2",
 	"smooth-scrolling-threshold": 1,
 },
 "backlight#2": {

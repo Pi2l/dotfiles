@@ -4,12 +4,12 @@ stow -vRt ~/.config/wallust wallust
 # Deps
 ## pacman:
 ```
-sudo pacman -S waybar hypridle hyprlock xdg-desktop-portal-hyprland btop hyprsunset nautilus wofi kitty tlp hyprpaper wl-clipboard cliphist pipewire pipewire-pulse file-roller eza bat fzf starship jq bc nwg-look xdg-desktop-portal-hyprland swaync brightnessctl libnotify
+sudo pacman -S waybar hypridle hyprlock xdg-desktop-portal-hyprland btop hyprsunset nautilus wofi kitty tlp hyprpaper wl-clipboard cliphist pipewire pipewire-pulse file-roller eza bat fzf starship jq bc nwg-look xdg-desktop-portal-hyprland swaync brightnessctl libnotify swayosd-libinput-backend swayosd hyprshot
 ```
 
 ## AUR
 ```
-yay -S wlogout wallust pwvucontrol
+yay -S wlogout wallust pwvucontrol hyprland-per-window-layout
 ```
 
 ## Fonts
