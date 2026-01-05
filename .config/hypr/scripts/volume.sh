@@ -24,7 +24,7 @@ fi
 # Function to increase volume, capped at 100%
 volume_up() {
   local step=$1
-  $HYPR_SCRIPTS_DIR/shared/shared/osd.sh has-swayosd
+  $HYPR_SCRIPTS_DIR/shared/osd.sh has-swayosd
 
   if echo $?; then
     swayosd-client --output-volume "$step"
@@ -59,7 +59,7 @@ volume_up_pipewire() {
 # Function to decrease volume and toggle mute if volume reaches 0%
 volume_down() {
   local step=$1
-  $HYPR_SCRIPTS_DIR/shared/shared/osd.sh has-swayosd
+  $HYPR_SCRIPTS_DIR/shared/osd.sh has-swayosd
 
   if echo $?; then
     swayosd-client --output-volume "-$step"
@@ -79,7 +79,7 @@ volume_down() {
 }
 
 toggle_volume() {
-  $HYPR_SCRIPTS_DIR/shared/shared/osd.sh has-swayosd
+  $HYPR_SCRIPTS_DIR/shared/osd.sh has-swayosd
 
   if echo $?; then
     swayosd-client --output-volume mute-toggle
@@ -90,7 +90,7 @@ toggle_volume() {
 }
 
 toggle_microphone() {
-  $HYPR_SCRIPTS_DIR/shared/shared/osd.sh has-swayosd
+  $HYPR_SCRIPTS_DIR/shared/osd.sh has-swayosd
 
   if echo $?; then
     swayosd-client --input-volume mute-toggle
@@ -101,10 +101,10 @@ toggle_microphone() {
 }
 
 mute() {
-  $HYPR_SCRIPTS_DIR/shared/shared/osd.sh has-swayosd
+  $HYPR_SCRIPTS_DIR/shared/osd.sh has-swayosd
 
   if echo $?; then
-    swayosd-client --input-volume mute-toggle
+    swayosd-client --output-volume mute-toggle
   else
     pactl set-sink-mute @DEFAULT_SINK@ 1
     $SCRIPTS_DIR/notification/notify-user.sh volume
@@ -112,7 +112,7 @@ mute() {
 }
 
 unmute() {
-  $HYPR_SCRIPTS_DIR/shared/shared/osd.sh has-swayosd
+  $HYPR_SCRIPTS_DIR/shared/osd.sh has-swayosd
 
   if echo $?; then
     swayosd-client --input-volume mute-toggle
@@ -124,7 +124,7 @@ unmute() {
 
 microphone_volume_up() {
   local step=$1
-  $HYPR_SCRIPTS_DIR/shared/shared/osd.sh has-swayosd
+  $HYPR_SCRIPTS_DIR/shared/osd.sh has-swayosd
 
   if echo $?; then
     swayosd-client --input-volume "$step"
@@ -146,7 +146,7 @@ microphone_volume_up() {
 
 microphone_volume_down() {
   local step=$1
-  $HYPR_SCRIPTS_DIR/shared/shared/osd.sh has-swayosd
+  $HYPR_SCRIPTS_DIR/shared/osd.sh has-swayosd
 
   if echo $?; then
     swayosd-client --input-volume "-$step"
