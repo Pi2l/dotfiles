@@ -1,6 +1,13 @@
 #!/bin/bash
 
-for i in {1..5}; do
+time_to_min() {
+  local h m
+  IFS=: read -r h m <<<"$1"
+  echo $((10#$h * 60 + 10#$m))
+}
+
+MAX=${MAX:-5}
+for i in $(seq 1 "$MAX"); do
   # Variables
   theme_file="$HOME/.config/light-dark-theme/theme"
   location_info=$(curl -s http://ip-api.com/json/)
@@ -11,7 +18,7 @@ for i in {1..5}; do
   if [[ -n "$latitude" && -n "$longitude" && -n "$timezone" ]]; then
     break
   fi
-  echo "Network not ready. Retrying in 5 seconds... ($i/5)"
+  echo "Network not ready. Retrying in 5 seconds... ($i/$MAX)"
   sleep 5
 done
 
@@ -33,17 +40,17 @@ sunset_local=$(TZ="$timezone" date -d "$sunset_utc" +"%H:%M")
 
 # Get current time
 current_time=$(date +"%H:%M")
+ct=$(time_to_min "$current_time")
+sr=$(time_to_min "$sunrise_local")
+ss=$(time_to_min "$sunset_local")
 
 # Determine next action
-if [[ $(date -d "$current_time" +%s) -ge $(date -d "$sunrise_local" +%s) && $(date -d "$current_time" +%s) -le $(date -d "$sunset_local" +%s) ]]; then
+if ((ct < ss && (sr <= ct || ct <= sr))); then
   mode="Light"
   next_trigger="$sunset_local"
-elif [[ $(date -d "$current_time" +%s) -ge $(date -d "$sunset_local" +%s) ]]; then
-  mode="Dark"
-  next_trigger="$sunrise_local"
 else
   mode="Dark"
-  next_trigger=$(date -d "tomorrow $sunrise_local" +"%H:%M")
+  next_trigger="$sunrise_local"
 fi
 
 # Apply the current theme
