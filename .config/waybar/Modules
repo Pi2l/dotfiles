@@ -291,7 +291,8 @@
 	"format-icons": [
 		"󰤯", "󰤟", "󰤢", "󰤥", "󰤨"
 	],
-	"on-click-right": "kitty nmtui"
+	"on-click-right": "kitty nmtui",
+  "on-click": "~/.local/bin/hyprltm-net"
 },
 "network#speed": {
 	"interval": 1,

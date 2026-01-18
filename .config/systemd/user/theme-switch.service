@@ -4,4 +4,5 @@ After=network-online.target
 Wants=network-online.target
 
 [Service]
+Environment="MAX=10"
 ExecStart=/bin/bash %h/.config/scripts/sunrise-sunset/dynamic_theme_switch.sh
