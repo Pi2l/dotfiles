@@ -39,3 +39,7 @@ polkit.addRule(function(action, subject) {
 });
 ```
 6. Restart polkit: `sudo systemctl restart polkit`
+
+Tlp:
+USB_EXCLUDE_PHONE=1
+
