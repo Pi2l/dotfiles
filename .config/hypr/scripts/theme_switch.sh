@@ -123,7 +123,7 @@ set_custom_gtk_theme() {
   theme_file="$HOME/.config/theme-switcher/theme"
   if [ "$mode" == "Light" ]; then
     search_keywords="*Light*"
-    selected_color="prefer-light"
+    selected_color="default"
   elif [ "$mode" == "Dark" ]; then
     search_keywords="*Dark*"
     selected_color="prefer-dark"
@@ -220,40 +220,9 @@ set_custom_gtk_theme() {
 
 }
 
-update_sunset() {
-  MODE=$1
-  CONF_FILE="$HOME/.config/theme-switcher/theme"
-  TEMPERATURE=5000
-
-  if [[ -e "$CONF_FILE" ]]; then
-    if [[ "$mode" == "Light" ]]; then
-      theme_section="[light-theme]"
-    else
-      theme_section="[dark-theme]"
-    fi
-    CONF_TEMPERATURE=$(awk -v section="$theme_section" '
-              $0 == section {found=1} 
-              found && $0 ~ /sunset-temperature=/ {gsub(/sunset-temperature=|'\''/,""); print; exit}
-              ' "$CONF_FILE")
-    if [[ -z "$CONF_TEMPERATURE" ]]; then
-      TEMPERATURE=5000
-    else
-      TEMPERATURE="$CONF_TEMPERATURE"
-    fi
-  fi
-
-  pkill hyprsunset
-  if [ "$MODE" == "Dark" ]; then
-    hyprsunset -t $TEMPERATURE &
-  else
-    hyprsunset -t $TEMPERATURE & # TODO: add check if themperature is more than 6000K
-  fi
-}
-
 set_custom_gtk_theme "$NEXT_MODE"
 
 update_theme_mode
-update_sunset "$NEXT_MODE"
 
 wallust run ~/.local/share/walls/default -u
 $SCRIPTSDIR/refresh.sh
