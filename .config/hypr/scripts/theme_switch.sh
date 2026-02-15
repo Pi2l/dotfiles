@@ -14,8 +14,12 @@ KITTY_CONF="$HOME/.config/kitty/kitty.conf"
 if [ ! -z $1 ]; then
   NEXT_MODE="$1"
 else
-  # Determine current theme mode
-  if [ "$(cat $HOME/.cache/.theme_mode)" = "Light" ]; then
+  theme_file="$HOME/.config/theme-switcher/theme.toml"
+
+  mode=$(~/.config/scripts/helpers/toml/helper-toml.sh read "$theme_file" current mode)
+  echo "mode: $mode"
+
+  if [[ "$mode" == "Light" || "$mode" == "light" ]]; then
     NEXT_MODE="Dark"
     # Logic for Dark mode
     wallpaper_path="$DARK_WALLPAPERS"
@@ -28,7 +32,7 @@ fi
 
 # Function to update theme mode for the next cycle
 update_theme_mode() {
-  echo "$NEXT_MODE" >~/.cache/.theme_mode
+  ~/.config/scripts/helpers/toml/helper-toml.sh write "$theme_file" current mode "$NEXT_MODE"
 }
 
 # Function to notify user
@@ -120,7 +124,7 @@ set_custom_gtk_theme() {
   icon_setting="org.gnome.desktop.interface icon-theme"
 
   # Define the file path
-  theme_file="$HOME/.config/theme-switcher/theme"
+  theme_file="$HOME/.config/theme-switcher/theme.toml"
   if [ "$mode" == "Light" ]; then
     search_keywords="*Light*"
     selected_color="default"
@@ -138,21 +142,14 @@ set_custom_gtk_theme() {
 
   if [[ -e "$theme_file" ]]; then
     if [[ "$mode" == "Light" ]]; then
-      theme_section="[light-theme]"
+      theme_section="light-theme"
     else
-      theme_section="[dark-theme]"
+      theme_section="dark-theme"
     fi
 
     # Parse the theme and icon values from the file
-    selected_theme=$(awk -v section="$theme_section" '
-            $0 == section {found=1} 
-            found && $0 ~ /gtk-theme=/ {gsub(/gtk-theme=|'\''/,""); print; exit}
-            ' "$theme_file")
-
-    selected_icon=$(awk -v section="$theme_section" '
-            $0 == section {found=1} 
-            found && $0 ~ /gtk-icon=/ {gsub(/gtk-icon=|'\''/,""); print; exit}
-            ' "$theme_file")
+    selected_theme=$(~/.config/scripts/helpers/toml/helper-toml.sh read "$theme_file" "$theme_section" gtk-theme)
+    selected_icon=$(~/.config/scripts/helpers/toml/helper-toml.sh read "$theme_file" "$theme_section" gtk-icon)
 
     # Validate that themes were found
     if [[ ! -n "$selected_theme" || ! -n "$selected_icon" ]]; then
@@ -220,9 +217,27 @@ set_custom_gtk_theme() {
 
 }
 
-set_custom_gtk_theme "$NEXT_MODE"
+set_wallpaper() {
+  mode="$1"
+  theme_file="$HOME/.config/theme-switcher/theme.toml"
 
+  if [[ -e "$theme_file" ]]; then
+    if [[ "$mode" == "Light" ]]; then
+      theme_section="light-theme"
+    else
+      theme_section="dark-theme"
+    fi
+
+    background_path=$(~/.config/scripts/helpers/toml/helper-toml.sh read "$theme_file" "$theme_section" background)
+    echo "background: $background_path"
+    "$SCRIPTSDIR"/change-wallpaper.sh load "$background_path"
+    "$SCRIPTSDIR"/change-wallpaper.sh unload-unused
+  fi
+}
+
+set_custom_gtk_theme "$NEXT_MODE"
 update_theme_mode
+set_wallpaper "$NEXT_MODE"
 
 wallust run ~/.local/share/walls/default -u
 $SCRIPTSDIR/refresh.sh

@@ -37,7 +37,7 @@ cd ~/.dotfiles/.config/scripts/night-shift
 
 ## 📊 Current System Status
 
-**Configuration File**: `~/.config/theme-switcher/theme`
+**Configuration File**: `~/.config/theme-switcher/theme.toml`
 ```ini
 [dark-theme]
 sunset-temperature=4700  # Warmest colors (lowest Kelvin)
@@ -68,8 +68,7 @@ sunset-temperature=6000  # Less warm for light theme
 - `night-shift-daemon.service` - Alternative continuous monitoring
 
 ### Configuration
-- `~/.config/theme-switcher/theme` - Main config file
-- `~/.cache/.theme_mode` - Current theme state
+- `~/.config/theme-switcher/theme.toml` - Main config file
 - `~/.cache/.night_shift_temp` - Last applied temperature
 
 ## 🎮 Service Management
@@ -168,7 +167,7 @@ Your system is working correctly when:
 # Run this to see your current system state:
 cd ~/.dotfiles/.config/scripts/night-shift && \
 echo "Time: $(date '+%H:%M')" && \
-echo "Mode: $(cat ~/.cache/.theme_mode 2>/dev/null || echo 'Unknown')" && \
+echo "Mode: $(cat ~/.config/theme-switcher/theme.toml 2>/dev/null || echo 'Unknown')" && \
 echo "Current Temp: $(./get-temperature-config.sh get-current-temp Dark)K" && \
 echo "hyprsunset PID: $(pgrep hyprsunset || echo 'Not running')" && \
 echo "Next Update: $(systemctl --user list-timers night-shift.timer --no-pager | awk 'NR==2{print $1, $2}')"

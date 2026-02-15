@@ -75,7 +75,7 @@ This script applies color temperature changes using hyprsunset based on the conf
 
 ## Configuration File
 
-The scripts read configuration from `$HOME/.config/theme-switcher/theme`.
+The scripts read configuration from `$HOME/.config/theme-switcher/theme.toml`.
 
 ### Format
 ```ini

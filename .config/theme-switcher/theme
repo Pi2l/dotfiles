@@ -1,9 +1,0 @@
-[dark-theme]
-gtk-theme='Yaru-Blue-dark'
-gtk-icon='Papirus-Dark'
-sunset-temperature='4700'
-
-[light-theme]
-gtk-theme='Yaru-Blue-light'
-gtk-icon='Papirus-Dark'
-sunset-temperature='6000'

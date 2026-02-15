@@ -1,0 +1,14 @@
+[dark-theme]
+gtk-theme = "Yaru-Blue-dark"
+gtk-icon = "Papirus-Dark"
+background = "/home/mewer/.local/share/walls/b-781.jpg"
+sunset-temperature = "4700"
+
+[light-theme]
+gtk-theme = "Yaru-Blue-light"
+gtk-icon = "Papirus-Dark"
+background = "/home/mewer/.local/share/walls/b-345.jpg"
+sunset-temperature = "6000"
+
+[current]
+mode = "Dark"

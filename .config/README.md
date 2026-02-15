@@ -15,7 +15,7 @@ yay -S wlogout wallust pwvucontrol hyprland-per-window-layout
 ## Fonts
 Noto, Jetbrains, Adwaita mono
 ```
-sudo pacman -S noto-fonts noto-fonts-cjk adwaita-fonts ttf-nerd-fonts-symbols 
+sudo pacman -S noto-fonts noto-fonts-cjk adwaita-fonts ttf-nerd-fonts-symbols noto-fonts-emoji
 ```
 
 ## Polkit and [fingerprint auth](https://wiki.archlinux.org/title/Fprint)

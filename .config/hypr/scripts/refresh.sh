@@ -10,6 +10,6 @@ done
 #Restart waybar
 waybar &
 
-wait $!
+# wait $!
 # relaunch swaync
 swaync >/dev/null 2>&1 &

@@ -5,7 +5,8 @@
 # smooth temperature transitions throughout the night from cooler to warmer colors
 
 # Configuration variables
-CONF_FILE="$HOME/.config/theme-switcher/theme"
+SCRIPTS_DIR="${XDG_CONFIG_HOME:-$HOME/.config}/scripts"
+CONF_FILE="$HOME/.config/theme-switcher/theme.toml"
 DEFAULT_TEMPERATURE=3000
 MAX_TEMPERATURE=6500
 MIN_TEMPERATURE=1000
@@ -30,12 +31,8 @@ validate_temperature() {
 }
 
 # Function to get current theme mode
-get_current_theme_mode() {
-    if [[ -f "$HOME/.cache/.theme_mode" ]]; then
-        cat "$HOME/.cache/.theme_mode"
-    else
-        echo "Dark"  # Default to Dark if no cache file
-    fi
+get_current_mode() {
+  echo "$("$SCRIPTS_DIR"/helpers/toml/helper-toml.sh read "$theme_file" current mode)"
 }
 
 # Function to get sunrise and sunset times
@@ -137,35 +134,23 @@ get_temperature_config() {
     
     if [[ -e "$CONF_FILE" ]]; then
         if [[ "$mode" == "Light" ]]; then
-            theme_section="[light-theme]"
+            theme_section="light-theme"
         else
-            theme_section="[dark-theme]"
+            theme_section="dark-theme"
         fi
         
         # Get temperature setting
-        temp_config=$(awk -v section="$theme_section" '
-            $0 == section {found=1; next} 
-            found && /^\[/ && $0 != section {found=0}
-            found && $0 ~ /^sunset-temperature=/ {gsub(/sunset-temperature=|'\''|"/, ""); print; exit}
-        ' "$CONF_FILE")
+        temp_config=$("$SCRIPTS_DIR"/helpers/toml/helper-toml.sh read "$CONF_FILE" "$theme_section" sunset-temperature)
         
         if [[ -n "$temp_config" ]]; then
             temperature=$(validate_temperature "$temp_config")
         fi
         
         # Get from-time setting
-        from_time=$(awk -v section="$theme_section" '
-            $0 == section {found=1; next} 
-            found && /^\[/ && $0 != section {found=0}
-            found && $0 ~ /^from-time=/ {gsub(/from-time=|'\''|"/, ""); print; exit}
-        ' "$CONF_FILE")
+        from_time=$("$SCRIPTS_DIR"/helpers/toml/helper-toml.sh read "$CONF_FILE" "$theme_section" from-time)
         
         # Get till-time setting
-        till_time=$(awk -v section="$theme_section" '
-            $0 == section {found=1; next} 
-            found && /^\[/ && $0 != section {found=0}
-            found && $0 ~ /^till-time=/ {gsub(/till-time=|'\''|"/, ""); print; exit}
-        ' "$CONF_FILE")
+        till_time=$("$SCRIPTS_DIR"/helpers/toml/helper-toml.sh read "$CONF_FILE" "$theme_section" till-time)
     fi
     
     echo "$temperature|$from_time|$till_time"

@@ -33,11 +33,7 @@ check_hyprsunset() {
 
 # Function to get current theme mode
 get_current_mode() {
-    if [[ -f "$HOME/.cache/.theme_mode" ]]; then
-        cat "$HOME/.cache/.theme_mode"
-    else
-        echo "Dark"
-    fi
+  echo "$("$SCRIPTS_DIR"/helpers/toml/helper-toml.sh read "$theme_file" current mode)"
 }
 
 # Function to validate temperature
@@ -81,9 +77,6 @@ apply_temperature() {
     
     log_info "Applying color temperature: ${temp}K for $mode mode"
     
-    # Kill existing processes
-    kill_hyprsunset
-    
     # Start hyprsunset with new temperature
     if [[ "$mode" == "Light" && $temp -ge 6000 ]]; then
         # For light mode with high temperature, don't apply filter
@@ -92,21 +85,7 @@ apply_temperature() {
     fi
     
     # Apply temperature filter - use setsid to fully detach from the session
-    setsid hyprsunset -t "$temp" >/dev/null 2>&1 &
-    
-    # Give it a moment to start
-    sleep 0.5
-    
-    # Check if hyprsunset is now running
-    if pgrep hyprsunset >/dev/null 2>&1; then
-        local new_pid
-        new_pid=$(pgrep hyprsunset)
-        log_info "Successfully started hyprsunset (PID: $new_pid) with temperature ${temp}K"
-        return 0
-    else
-        log_error "Failed to start hyprsunset"
-        return 1
-    fi
+    hyprctl hyprsunset temperature "$temp"
 }
 
 # Function to get appropriate temperature based on current time and config
@@ -147,10 +126,14 @@ update_night_shift() {
     apply_temperature "$temperature" "$mode"
 }
 
+disable_hyprsunset() {
+    hyprctl hyprsunset identity
+}
+
 # Function to disable night shift
 disable_night_shift() {
     log_info "Disabling night shift"
-    kill_hyprsunset
+    disable_hyprsunset
 }
 
 # Function to get status
