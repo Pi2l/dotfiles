@@ -93,11 +93,15 @@ toggle_microphone() {
   $HYPR_SCRIPTS_DIR/shared/osd.sh has-swayosd
 
   if echo $?; then
-    swayosd-client --input-volume mute-toggle
+    # swayosd-client --input-volume mute-toggle
+    notify-send "TODO: swayosd"
+    pactl set-source-mute @DEFAULT_SOURCE@ toggle
   else
     pactl set-source-mute @DEFAULT_SOURCE@ toggle
     $SCRIPTS_DIR/notification/notify-user.sh microphone
   fi
+
+  $SCRIPTS_DIR/bin/mic-toggle-led.sh
 }
 
 mute() {

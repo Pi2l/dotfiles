@@ -3,7 +3,10 @@
 # sudo vim /etc/udev/rules.d/99-thinkpad-leds.rules:
 # SUBSYSTEM=="leds", KERNEL=="platform::micmute", ACTION=="add", RUN+="/bin/chmod 666 /sys/class/leds/%k/brightness"
 # or sudo chmod 666 /sys/devices/platform/thinkpad_acpi/leds/platform::micmute/brightness
-
+#
+# SUBSYSTEM=="leds", KERNEL=="platform::micmute", ACTION=="add", RUN+="/bin/chmod 0666 /sys%p/brightness"
+# sudo udevadm control --reload-rules
+# sudo udevadm trigger --subsystem-match=leds --action=add
 IS_MUTED=$(pactl get-source-mute @DEFAULT_SOURCE@ | awk '{print $2}')
 LED_PATH="/sys/devices/platform/thinkpad_acpi/leds/platform::micmute/brightness"
 
