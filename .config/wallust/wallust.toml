@@ -32,6 +32,9 @@ palette = "light16"
 hypr.template = 'colors-hyprland.conf'
 hypr.target = '~/.cache/wallust/colors-hyprland.conf'
 
+hyprlua.template = 'colors-hyprland.lua'
+hyprlua.target = '~/.cache/wallust/colors-hyprland.lua'
+
 waybar.template = 'colors-waybar.css'
 waybar.target = '~/.config/waybar/wallust/colors-waybar.css'
 
