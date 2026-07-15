@@ -12,7 +12,7 @@ hl.config({
 		kb_rules = "",
 
 		follow_mouse = 1,
-		resolve_binds_by_sym = 1,
+		resolve_binds_by_sym = 0,
 		sensitivity = 0, -- -1.0 - 1.0, 0 means no modification.
 
 		touchpad = {
