@@ -1,5 +1,5 @@
 ---@diagnostic disable: lowercase-global
-local configs = "lua/configs"
+local configs = "configs"
 
 -- ###################
 -- ### MY PROGRAMS ###
