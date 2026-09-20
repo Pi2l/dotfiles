@@ -9,7 +9,7 @@ local configs = "configs"
 -- Set programs that you use
 terminal = "kitty"
 fileManager = "nautilus"
-menu = "wofi --show drun"
+menu = "walker"
 
 require(configs .. "/monitors")
 require(configs .. "/autostarts")

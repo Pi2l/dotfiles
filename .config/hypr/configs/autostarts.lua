@@ -11,8 +11,8 @@ hl.on("hyprland.start", function()
 	hl.exec_cmd("wl-paste")
 	hl.exec_cmd("dbus-update-activation-environment")
 	hl.exec_cmd("swayosd-server")
-	hl.exec_cmd("wl-paste")
-	hl.exec_cmd("systemctl --user start hyprland-session.target")
+    hl.exec_cmd("systemctl --user start hyprland-session.target")
+    hl.exec_cmd("elephant")
 
 	-- # Power button
 	-- # https://github.com/hyprwm/Hyprland/issues/2614#issuecomment-2395597405
