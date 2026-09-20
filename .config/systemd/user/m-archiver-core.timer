@@ -1,0 +1,13 @@
+[Unit]
+Description=Timer for Universal Directory Archiver
+
+[Timer]
+# start at 02:00 AM daily
+OnCalendar=*-*-* 02:00:00
+# If the computer was turned off at 2:00 a.m., run this when it is turned on
+Persistent=true
+# A random delay of up to 10 minutes to prevent the disk from becoming overloaded during system startup
+RandomizedDelaySec=600
+
+[Install]
+WantedBy=timers.target

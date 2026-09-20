@@ -1,0 +1,18 @@
+{
+  "global": {
+    "dry_run": false,
+    "log_file": "/tmp/archiver.log",
+    "send_notifications": true
+  },
+  "jobs": [
+    {
+      "name": "Cleanup and Archive Trash",
+      "source_dir": "/home/mewer/.local/share/Trash/files",
+      "archive_dir": "/home/mewer/.local/share/Trash/archive-new",
+      "archive_format": "tar.gz",
+      "older_than_days": 30,
+      "exclude_patterns": ["*.tmp", ".keep"],
+      "delete_after_archiving": true
+    }
+  ]
+}

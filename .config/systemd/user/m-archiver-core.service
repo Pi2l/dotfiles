@@ -1,0 +1,10 @@
+[Unit]
+Description=Universal Directory Archiver and Cleaner Engine
+After=local-fs.target
+
+[Service]
+Type=oneshot
+ExecStart=/home/mewer/.local/bin/m-archiver-core /home/mewer/.config/m-archiver-core/config.json
+# Energy Efficiency: Minimum Priority for the Processor and Disk
+IOSchedulingClass=idle
+CPUSchedulingPolicy=idle
