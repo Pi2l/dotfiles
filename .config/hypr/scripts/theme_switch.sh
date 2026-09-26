@@ -66,62 +66,15 @@ fi
 #     fi
 # }
 
-# swaync color change
-# if [ "$next_mode" = "Dark" ]; then
-#     sed -i '/@define-color noti-bg/s/rgba([0-9]*,\s*[0-9]*,\s*[0-9]*,\s*[0-9.]*);/rgba(0, 0, 0, 0.8);/' "${SWAYNC_STYLE}"
-#     sed -i '/@define-color noti-bg-alt/s/#.*;/#111111;/' "${SWAYNC_STYLE}"
-# else
-#     sed -i '/@define-color noti-bg/s/rgba([0-9]*,\s*[0-9]*,\s*[0-9]*,\s*[0-9.]*);/rgba(255, 255, 255, 0.9);/' "${SWAYNC_STYLE}"
-#     sed -i '/@define-color noti-bg-alt/s/#.*;/#F0F0F0;/' "${SWAYNC_STYLE}"
-# fi
-
-# kitty background color change
-# if [ "$next_mode" = "Dark" ]; then
-#     sed -i '/^foreground /s/^foreground .*/foreground #dddddd/' "${KITTY_CONF}"
-#     sed -i '/^background /s/^background .*/background #000000/' "${KITTY_CONF}"
-#     sed -i '/^cursor /s/^cursor .*/cursor #dddddd/' "${KITTY_CONF}"
-# else
-#     sed -i '/^foreground /s/^foreground .*/foreground #000000/' "${KITTY_CONF}"
-#     sed -i '/^background /s/^background .*/background #dddddd/' "${KITTY_CONF}"
-#     sed -i '/^cursor /s/^cursor .*/cursor #000000/' "${KITTY_CONF}"
-# fi
-# for pid in $(pidof kitty); do
-#     kill -SIGUSR1 "$pid"
-# done
-
-# Set Dynamic Wallpaper for Dark or Light Mode
-# if [ "$next_mode" = "Dark" ]; then
-#     next_wallpaper="$(find "${DARK_WALLPAPERS}" -type f \( -iname "*.jpg" -o -iname "*.png" \) -print0 | shuf -n1 -z | xargs -0)"
-# else
-#     next_wallpaper="$(find "${LIGHT_WALLPAPERS}" -type f \( -iname "*.jpg" -o -iname "*.png" \) -print0 | shuf -n1 -z | xargs -0)"
-# fi
-
-# Update wallpaper using swww command
-# $swww "${next_wallpaper}" $effect
-
-# Set Kvantum Manager theme & QT5/QT6 settings
-# if [ "$NEXT_MODE" = "Dark" ]; then
-#   kvantum_theme="Catppuccin-Mocha"
-#   qt5ct_color_scheme="$HOME/.config/qt5ct/colors/Catppuccin-Mocha.conf"
-#   qt6ct_color_scheme="$HOME/.config/qt6ct/colors/Catppuccin-Mocha.conf"
-# else
-#   kvantum_theme="Catppuccin-Latte"
-#   qt5ct_color_scheme="$HOME/.config/qt5ct/colors/Catppuccin-Latte.conf"
-#   qt6ct_color_scheme="$HOME/.config/qt6ct/colors/Catppuccin-Latte.conf"
-# fi
-#
-# sed -i "s|^color_scheme_path=.*$|color_scheme_path=$qt5ct_color_scheme|" "$HOME/.config/qt5ct/qt5ct.conf"
-# sed -i "s|^color_scheme_path=.*$|color_scheme_path=$qt6ct_color_scheme|" "$HOME/.config/qt6ct/qt6ct.conf"
-# kvantummanager --set "$kvantum_theme"
-
 # GTK themes and icons switching
 set_custom_gtk_theme() {
   mode=$1
   gtk_themes_directory="$HOME/.themes"
-  icon_directory="$HOME/.icons"
+  icon_directory="$HOME/.local/share/icons"
   color_setting="org.gnome.desktop.interface color-scheme"
   theme_setting="org.gnome.desktop.interface gtk-theme"
   icon_setting="org.gnome.desktop.interface icon-theme"
+  cursor_setting="org.gnome.desktop.interface cursor-theme"
 
   # Define the file path
   theme_file="$HOME/.config/theme-switcher/theme.toml"
@@ -150,14 +103,16 @@ set_custom_gtk_theme() {
     # Parse the theme and icon values from the file
     selected_theme=$(~/.config/scripts/helpers/toml/helper-toml.sh read "$theme_file" "$theme_section" gtk-theme)
     selected_icon=$(~/.config/scripts/helpers/toml/helper-toml.sh read "$theme_file" "$theme_section" gtk-icon)
+    selected_cursor=$(~/.config/scripts/helpers/toml/helper-toml.sh read "$theme_file" "$theme_section" gtk-cursor)
 
     # Validate that themes were found
-    if [[ ! -n "$selected_theme" || ! -n "$selected_icon" ]]; then
+    if [[ ! -n "$selected_theme" || ! -n "$selected_icon" || ! -n "$selected_cursor" ]]; then
       echo "Error: Failed to parse theme settings from $theme_file"
       exit 1
     fi
     echo "GTK Theme: $selected_theme"
     echo "GTK Icon: $selected_icon"
+    echo "GTK Cursor: $selected_cursor"
   else
     notify-send "Config file not found! Searched at: $theme_file; File layout: [dark-theme]\ngtk-theme='...'\ngtk-icon='...'\n[light-theme]\ngtk-theme='...'\ngtk-icon='...'"
     while IFS= read -r -d '' theme_search; do
@@ -200,6 +155,7 @@ set_custom_gtk_theme() {
   gsettings set $color_setting "$selected_color"
   gsettings set $theme_setting "$selected_theme"
   gsettings set $icon_setting "$selected_icon"
+  gsettings set $cursor_setting "$selected_cursor"
 
   # Flatpak GTK apps (themes)
   if command -v flatpak &>/dev/null; then
@@ -215,6 +171,51 @@ set_custom_gtk_theme() {
     flatpak --user override --env=ICON_THEME="$selected_icon"
   fi
 
+}
+
+set_hyprland_theme() {
+    mode=$1
+    icon_directory="$HOME/.local/share/icons"
+
+    # Define the file path
+    theme_file="$HOME/.config/theme-switcher/theme.toml"
+    if [ "$mode" == "Light" ]; then
+        search_keywords="*Light*"
+        selected_color="default"
+    elif [ "$mode" == "Dark" ]; then
+        search_keywords="*Dark*"
+        selected_color="prefer-dark"
+    else
+        selected_color="default"
+        echo "Invalid mode provided. Set to default: 'default'"
+        return 1
+    fi
+
+    if [[ -e "$theme_file"  ]]; then
+    # && -e "$SCRIPTSDIR"/shared/functions.sh hyprland_running
+        if [[ "$mode" == "Light" ]]; then
+            theme_section="light-theme"
+        else
+            theme_section="dark-theme"
+        fi
+
+        # Parse the theme and icon values from the file
+        selected_cursor=$(~/.config/scripts/helpers/toml/helper-toml.sh read "$theme_file" "$theme_section" gtk-cursor) # can be added hypr-cursor to config to have cursor per DE
+        selected_cursor_size=$(~/.config/scripts/helpers/toml/helper-toml.sh read "$theme_file" "$theme_section" cursor-size)
+
+        # Validate that themes were found
+        if [[ ! -n "$selected_cursor" ]]; then
+            echo "Error: Failed to parse theme settings from $theme_file"
+            exit 1
+        fi
+            echo "Hypr Cursor: $selected_cursor"
+            echo "Hypr Cursor size: $selected_cursor_size"
+        else
+            notify-send "Config file not found! Searched at: $theme_file; File layout: [dark-theme]\ngtk-theme='...'\ngtk-icon='...'\n[light-theme]\ngtk-theme='...'\ngtk-icon='...'"
+
+        # Apply the themes using hypr
+        hyprctl setcursor "$selected_cursor" 24 # "$selected_cursor_size" # fix size
+    fi
 }
 
 set_wallpaper() {
@@ -236,6 +237,7 @@ set_wallpaper() {
 }
 
 set_custom_gtk_theme "$NEXT_MODE"
+set_hyprland_theme "$NEXT_MODE"
 update_theme_mode
 set_wallpaper "$NEXT_MODE"
 
