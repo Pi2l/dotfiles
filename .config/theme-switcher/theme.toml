@@ -10,7 +10,7 @@ sunset-temperature = "4700"
 gtk-theme = "Yaru-Blue-light"
 gtk-icon = "Papirus-Dark"
 gtk-cursor = "Bibata-Modern-Classic"
-cursor-size = 22
+cursor-size = 24
 background = "/home/mewer/.local/share/walls/b-005.jpg"
 sunset-temperature = "6000"
 
