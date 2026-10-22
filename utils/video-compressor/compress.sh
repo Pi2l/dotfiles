@@ -39,31 +39,29 @@ case "$MODE" in
         OUTPUT_EXT="mp4"
         FFMPEG_OPTS=(
             -c:v libx265
-            -crf 22
+            -crf 26
             -preset slow
             -tag:v hvc1
-            -c:a aac
-            -b:a 128k
+            -c:a copy
         )
         ;;
     max-size)
         OUTPUT_EXT="mp4"
         FFMPEG_OPTS=(
             -c:v libsvtav1
-            -crf 26
-            -preset 4
-            -c:a aac
-            -b:a 96k
+            -crf 34
+            -preset 5
+            -svtav1-params tune=0
+            -c:a copy
         )
         ;;
     max-quality)
         OUTPUT_EXT="mp4"
         FFMPEG_OPTS=(
             -c:v libx264
-            -crf 17
+            -crf 22
             -preset slow
-            -c:a aac
-            -b:a 256k
+            -c:a copy
         )
         ;;
     trueloseless|truelossless)

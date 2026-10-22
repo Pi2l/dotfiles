@@ -9,7 +9,7 @@ TARGET_PATH="$INSTALL_DIR/$TARGET_NAME"
 echo "=== Встановлення vcompress ==="
 
 # 1. Створення каталогу ~/.local/bin, якщо він ще не існує
-mkdir -p "\$INSTALL_DIR"
+mkdir -p "$INSTALL_DIR"
 
 # 3. Надання прав на виконання та створення симлінка на vcompress.sh
 rm -f "$INSTALL_DIR/vcompress.sh"
