@@ -3,6 +3,7 @@
 
 # Get the aliases and functions
 CONFIG_DIR=${XDG_CONFIG_HOME:-$HOME/.config}
+
 if [ -f "$CONFIG_DIR/zsh/.zshrc" ]; then
     . "$CONFIG_DIR/zsh/.zshrc"
 fi
@@ -11,3 +12,9 @@ fi
 
 #rust
 . "$HOME/.cargo/env"
+
+export XDG_CONFIG_HOME=${XDG_CONFIG_HOME:-$HOME/.config}
+export XDG_CACHE_HOME=${XDG_CACHE_HOME:-$HOME/.cache}
+export XDG_DATA_HOME=${XDG_DATA_HOME:-$HOME/.local/share}
+export XDG_RUNTIME_DIR=${XDG_RUNTIME_DIR:-/run/user/$UID}
+export XDG_CONFIG_DIRS=${XDG_CONFIG_DIRS:-/etc/xdg}
