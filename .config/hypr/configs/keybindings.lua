@@ -23,6 +23,7 @@ hl.bind(mainMod .. " + SHIFT + L", hl.dsp.exec_cmd("hyprlock"))
 hl.bind(mainMod .. " + SHIFT + T", hl.dsp.exec_cmd(scriptsDir .. "/theme_switch.sh"))
 hl.bind(mainMod .. " + SHIFT + W", hl.dsp.exec_cmd(scriptsDir .. "/wofi-wallpaper-selector.sh"))
 hl.bind(mainMod .. " + SPACE", hl.dsp.exec_cmd(scriptsDir .. "/change-kblayout.sh notify"))
+hl.bind(mainMod .. " + SHIFT + P", hl.dsp.exec_cmd(scriptsDir .. "/power/change-profile.sh"))
 
 -- # Clipbord
 hl.bind(mainMod .. " + V", hl.dsp.exec_cmd("cliphist list | wofi --dmenu | cliphist decode | wl-copy")) -- select from clipboard
